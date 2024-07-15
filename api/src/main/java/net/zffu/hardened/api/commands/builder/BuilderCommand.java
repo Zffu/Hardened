@@ -11,7 +11,7 @@ import net.zffu.hardened.api.commands.Command;
  */
 public class BuilderCommand implements Command {
 
-    private String[] names;
+    protected String[] names;
 
     @Override
     public String[] getNames() {
