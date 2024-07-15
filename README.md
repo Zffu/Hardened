@@ -1,4 +1,12 @@
 # Hardened
-Hardened is a **WIP** Minecraft Command API that aims to support multiple server platforms.
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-The main goal of Hardened is to have a simple syntax to make commands faster without any performance tradeoff.
+A WIP Minecraft Command API.
+
+## Contributions
+
+Currently, Hardened is in an early WIP state that isn't very favorable for contributions.
+
+Any contribution is greatly appreciated, before actually making your pull request make sure that everything works like intended.
+
+You will need maven and at least jdk 8 to contribute to Hardened.
