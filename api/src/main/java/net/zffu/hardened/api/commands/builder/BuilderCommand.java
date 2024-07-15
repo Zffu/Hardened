@@ -1,7 +1,10 @@
 package net.zffu.hardened.api.commands.builder;
 
+import javafx.util.Builder;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
+import net.zffu.hardened.api.commands.validator.CommandValidator;
+import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
@@ -24,5 +27,16 @@ public class BuilderCommand implements Command, TypeGatedCommand {
     @Override
     public InvokerType[] getAllowedInvokers() {
         return this.allowedTypes;
+    }
+
+    /**
+     * A {@link Validator} for the {@link BuilderCommand} class.
+     */
+    public class Validator implements CommandValidator<BuilderCommand> {
+
+        @Override
+        public boolean validate(BuilderCommand command, CommandInvoker invoker) {
+            return false;
+        }
     }
 }
