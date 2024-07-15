@@ -7,24 +7,45 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
  * @since 0.0.1
  * @see {@link CommandInvoker}
  */
-public interface CommandContext {
+public class CommandContext {
+
+    private CommandInvoker invoker;
+    private String[] args;
+    private String name;
 
     /**
-     * Gets the {@link CommandInvoker} from the {@link CommandContext}.
+     * <p>Constructs a new {@link CommandContext}.</p>
+     * @param invoker the {@link CommandInvoker}
+     * @param args the args
+     * @param name the name
+     */
+    public CommandContext(CommandInvoker invoker, String[] args, String name) {
+        this.invoker = invoker;
+        this.args = args;
+        this.name = name;
+    }
+
+    /**
+     * Gets the {@link CommandInvoker} of the {@link CommandContext}.
      * @return
      */
-    CommandInvoker getInvoker();
+    public CommandInvoker getInvoker() {
+        return this.invoker;
+    }
 
     /**
-     * Gets the args from the {@link CommandContext}.
-     * @return the args
-     */
-    String[] getArgs();
-
-    /**
-     * Gets the name used when running the command.
+     * Gets the ars from the {@link CommandContext}.
      * @return
      */
-    String getName();
+    public String[] getArgs() {
+        return this.args;
+    }
 
+    /**
+     * Gets the name of the command used in the {@link CommandContext}.
+     * @return
+     */
+    public String getName() {
+        return this.name;
+    }
 }
