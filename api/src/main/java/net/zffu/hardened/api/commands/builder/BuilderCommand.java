@@ -1,6 +1,5 @@
 package net.zffu.hardened.api.commands.builder;
 
-import javafx.util.Builder;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
 import net.zffu.hardened.api.commands.validator.CommandValidator;
