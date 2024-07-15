@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.validator.CommandValidator;
+import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 
 import java.util.Arrays;
@@ -13,9 +14,9 @@ import java.util.Arrays;
 public class BuilderCommandValidator implements CommandValidator<BuilderCommand> {
 
     @Override
-    public boolean validate(BuilderCommand command, CommandInvoker invoker) {
+    public boolean validate(BuilderCommand command, CommandContext context) {
         //todo: optimize this logic to not have to use Arrays.asList
-        if(command.allowedTypes == null || Arrays.asList(command.allowedTypes).contains(invoker.getType())) return true;
+        if(command.allowedTypes == null || Arrays.asList(command.allowedTypes).contains(context.getInvoker().getType())) return true;
         return false;
     }
 }
