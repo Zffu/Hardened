@@ -9,21 +9,6 @@ import net.zffu.hardened.api.commands.Command;
  * @since 0.0.1
  * @see {@link Command}
  */
-public class CommandBuilder implements Command {
-
-    private String[] names;
-
-    /**
-     * Constructs a new {@link CommandBuilder} with the provided names.
-     * @param names
-     */
-    public CommandBuilder(String[] names) {
-        this.names = names;
-    }
-
-    @Override
-    public String[] getNames() {
-        return this.names;
-    }
+public class CommandBuilder {
 
 }
