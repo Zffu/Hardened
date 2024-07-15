@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.validator;
 
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
@@ -15,6 +16,6 @@ public interface CommandValidator<T extends Command > {
      * @param invoker the invoker.
      * @return true if the invoker is allowed to run the command or else false
      */
-    boolean validate(T command, CommandInvoker invoker);
+    boolean validate(T command, CommandContext invoker);
 
 }
