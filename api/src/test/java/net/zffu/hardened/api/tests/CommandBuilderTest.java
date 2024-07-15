@@ -8,8 +8,8 @@ import net.zffu.hardened.api.invoker.InvokerType;
 public class CommandBuilderTest {
 
     public static void main(String[] args) {
-        SimpleInvoker playerInvoker = new SimpleInvoker(InvokerType.PLAYER); // Should work with the command.
-        SimpleInvoker consoleInvoker = new SimpleInvoker(InvokerType.CONSOLE); // Should not work with the command.
+        CommandContext playerContext = new CommandContext(new SimpleInvoker(InvokerType.PLAYER), null, ""); // Should work with the command.
+        CommandContext consoleContext = new CommandContext(new SimpleInvoker(InvokerType.PLAYER), null, ""); // Should not work with the command.
 
         Command command = new CommandBuilder("test") {
             @Override
@@ -20,11 +20,11 @@ public class CommandBuilderTest {
 
         // Validator Tests
 
-        if(!command.getValidator().validate(command, playerInvoker)) throw new IllegalStateException("Player Invoker should be allowed to use the command");
-        if(command.getValidator().validate(command, consoleInvoker)) throw new IllegalStateException("Console Invoker shouldn't be allowed to use the command");
+        if(!command.getValidator().validate(command, playerContext)) throw new IllegalStateException("Player Invoker should be allowed to use the command");
+        if(command.getValidator().validate(command, consoleContext)) throw new IllegalStateException("Console Invoker shouldn't be allowed to use the command");
 
         // Execution test
-
+        command.run(playerContext);
 
         System.out.println("All tests were successful!");
     }
