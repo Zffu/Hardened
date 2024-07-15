@@ -35,7 +35,7 @@ public interface Command<T extends CommandValidator> {
      * @param commandContext
      */
     default void run(CommandContext commandContext) {
-        if(getValidator().validate(this, commandContext.getInvoker())) execute(commandContext);
+        if(getValidator().validate(this, commandContext)) execute(commandContext);
     }
 
 }
