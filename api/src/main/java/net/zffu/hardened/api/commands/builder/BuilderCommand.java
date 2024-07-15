@@ -2,6 +2,7 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
+import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
@@ -11,7 +12,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 0.0.1
  * @see {@link Command}
  */
-public class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand {
+public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand {
 
     private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
