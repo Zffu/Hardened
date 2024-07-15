@@ -2,7 +2,6 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
