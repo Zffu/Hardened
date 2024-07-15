@@ -1,25 +1,23 @@
 package net.zffu.hardened.api.tests;
 
+import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.builder.CommandBuilder;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 public class CommandBuilderTest {
 
     public static void main(String[] args) {
+        SimpleInvoker playerInvoker = new SimpleInvoker(InvokerType.PLAYER); // Should work with the command.
+        SimpleInvoker consoleInvoker = new SimpleInvoker(InvokerType.CONSOLE); // Should not work with the command.
 
-        // Invokers shouldn't be made like that its just for testing purposes.
-        CommandInvoker sampleInvoker = new CommandInvoker() {
-            @Override
-            public InvokerType getType() {
-                return InvokerType.PLAYER;
-            }
-        };
+        Command command = new CommandBuilder("test").allowed(InvokerType.PLAYER);
 
-        CommandBuilder builder = new CommandBuilder("test");
-        builder.allowed(InvokerType.PLAYER); // Only allows player to run the test command
+        // Validator Tests
 
-        System.out.println("Validation Result: " + builder.getValidator().validate(builder, sampleInvoker));
+        if(!command.getValidator().validate(command, playerInvoker)) throw new IllegalStateException("Player Invoker should be allowed to use the command");
+        if(command.getValidator().validate(command, consoleInvoker)) throw new IllegalStateException("Console Invoker shouldn't be allowed to use the command");
+
+        System.out.println("All tests were successful!");
     }
 
 }
