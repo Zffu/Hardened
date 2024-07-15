@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
@@ -17,6 +18,16 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder(String[] names) {
         this.names = names;
+    }
+
+    /**
+     * Sets the {@link InvokerType} that are allowed to run the command.
+     * @param types
+     * @return
+     */
+    public CommandBuilder allowed(InvokerType... types) {
+        this.allowedTypes = types;
+        return this;
     }
 
 }
