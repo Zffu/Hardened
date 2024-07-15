@@ -1,4 +1,6 @@
-package net.zffu.hardened.api.args;
+package net.zffu.hardened.api.args.types;
+
+import net.zffu.hardened.api.args.ArgumentType;
 
 /**
  * An Integer {@link ArgumentType}.
