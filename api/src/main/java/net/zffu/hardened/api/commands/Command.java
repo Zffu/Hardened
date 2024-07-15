@@ -30,4 +30,12 @@ public interface Command<T extends CommandValidator> {
     //todo: add command execution context
     void execute(CommandContext commandContext);
 
+    /**
+     * Runs the {@link Command} and checks using the {@link CommandValidator}.
+     * @param commandContext
+     */
+    default void run(CommandContext commandContext) {
+        if(getValidator().validate(this, commandContext.getInvoker())) execute(commandContext);
+    }
+
 }
