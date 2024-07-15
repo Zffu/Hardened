@@ -2,11 +2,7 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
-import net.zffu.hardened.api.commands.validator.CommandValidator;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
-
-import java.util.Arrays;
 
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
@@ -15,7 +11,9 @@ import java.util.Arrays;
  * @since 0.0.1
  * @see {@link Command}
  */
-public class BuilderCommand implements Command, TypeGatedCommand {
+public class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand {
+
+    private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
     protected InvokerType[] allowedTypes;
     protected String[] names;
@@ -26,20 +24,13 @@ public class BuilderCommand implements Command, TypeGatedCommand {
     }
 
     @Override
+    public BuilderCommandValidator getValidator() {
+        return validator;
+    }
+
+    @Override
     public InvokerType[] getAllowedInvokers() {
         return this.allowedTypes;
     }
 
-    /**
-     * A {@link Validator} for the {@link BuilderCommand} class.
-     */
-    public class Validator implements CommandValidator<BuilderCommand> {
-
-        @Override
-        public boolean validate(BuilderCommand command, CommandInvoker invoker) {
-            //todo: optimize this logic to not have to use Arrays.asList
-            if(command.allowedTypes == null || Arrays.asList(command.allowedTypes).contains(invoker.getType())) return true;
-            return false;
-        }
-    }
 }
