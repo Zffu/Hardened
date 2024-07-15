@@ -7,25 +7,24 @@ package net.zffu.hardened.api.commands;
 public class Command {
 
     /**
-     * The name of the {@link Command}.
+     * Names of the {@link Command}. The first element is the primary name, the other ones are aliases.
      */
-    private String name;
+    private String[] names;
 
     /**
      * Constructs a new {@link Command}.
-     * @param name
+     * @param names the names (aliases + the primary name) of the command.
      */
-    public Command(String name) {
-        this.name = name;
+    public Command(String... names) {
+        this.names = names;
     }
 
     /**
-     * Gets the name of the command.
+     * Gets all of the aliases of the command.
      * @return
      */
-    public String getName() {
-        return this.name;
+    public String[] getNames() {
+        return this.names;
     }
-
 
 }
