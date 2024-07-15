@@ -1,6 +1,8 @@
 package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.commands.types.TypeGatedCommand;
+import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
@@ -9,12 +11,18 @@ import net.zffu.hardened.api.commands.Command;
  * @since 0.0.1
  * @see {@link Command}
  */
-public class BuilderCommand implements Command {
+public class BuilderCommand implements Command, TypeGatedCommand {
 
+    protected InvokerType[] allowedTypes;
     protected String[] names;
 
     @Override
     public String[] getNames() {
         return this.names;
+    }
+
+    @Override
+    public InvokerType[] getAllowedInvokers() {
+        return this.allowedTypes;
     }
 }
