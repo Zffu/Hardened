@@ -9,6 +9,14 @@ import net.zffu.hardened.api.commands.Command;
  * @since 0.0.1
  * @see {@link Command}
  */
-public class CommandBuilder {
+public class CommandBuilder extends BuilderCommand {
+
+    /**
+     * Constructs a new {@link CommandBuilder}.
+     * @param names the command names.
+     */
+    public CommandBuilder(String[] names) {
+        this.names = names;
+    }
 
 }
