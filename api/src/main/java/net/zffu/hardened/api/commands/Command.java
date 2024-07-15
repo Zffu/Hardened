@@ -10,6 +10,6 @@ public interface Command {
      * Gets the primary name and aliases of the command.
      * @return all of the command names of the command.
      */
-    String getNames();
+    String[] getNames();
 
 }
