@@ -1,12 +1,20 @@
 package net.zffu.hardened.api.args;
 
 /**
- * A type value of an argument in a {@link net.zffu.hardened.api.commands.Command}.
- * @since 0.0.1
+ * A type of argument values that is used in {@link net.zffu.hardened.api.commands.Command}
+ @since 0.0.1
  */
-public enum ArgumentType {
+public interface ArgumentType<T> {
 
-    STRING,
-    INT
+    /**
+     * Converts the String into a {@link ArgumentType} value.
+     * @param s the string.
+     * @return the value.
+     */
+    T fromString(String s);
+
 
 }
+
+
+
