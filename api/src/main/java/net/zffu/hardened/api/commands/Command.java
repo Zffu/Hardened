@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands;
 
 import net.zffu.hardened.api.commands.validator.CommandValidator;
+import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
  * The base of every command created trough the Hardened API.
@@ -20,5 +21,12 @@ public interface Command<T extends CommandValidator> {
      * @return the {@link CommandValidator}.
      */
     T getValidator();
+
+    /**
+     * Performs the {@link Command} logic with the provided {@link CommandInvoker}.
+     * @param invoker the {@link CommandInvoker}
+     */
+    //todo: add command execution context
+    void execute(CommandInvoker invoker);
 
 }
