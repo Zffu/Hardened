@@ -6,6 +6,9 @@ package net.zffu.hardened.api.invoker;
  */
 public interface ICommandInvoker {
 
-
-
+    /**
+     * Is the {@link ICommandInvoker} a player.
+     * @return true or false
+     */
+    boolean isPlayer();
 }
