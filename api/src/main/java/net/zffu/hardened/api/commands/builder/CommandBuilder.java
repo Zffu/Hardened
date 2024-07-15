@@ -13,6 +13,10 @@ public class CommandBuilder implements Command {
 
     private String[] names;
 
+    /**
+     * Constructs a new {@link CommandBuilder} with the provided names.
+     * @param names
+     */
     public CommandBuilder(String[] names) {
         this.names = names;
     }
