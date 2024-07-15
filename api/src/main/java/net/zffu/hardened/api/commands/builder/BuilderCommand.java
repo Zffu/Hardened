@@ -7,6 +7,8 @@ import net.zffu.hardened.api.commands.validator.CommandValidator;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
+import java.util.Arrays;
+
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
  * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
@@ -36,6 +38,8 @@ public class BuilderCommand implements Command, TypeGatedCommand {
 
         @Override
         public boolean validate(BuilderCommand command, CommandInvoker invoker) {
+            //todo: optimize this logic to not have to use Arrays.asList
+            if(command.allowedTypes == null || Arrays.asList(command.allowedTypes).contains(invoker.getType())) return true;
             return false;
         }
     }
