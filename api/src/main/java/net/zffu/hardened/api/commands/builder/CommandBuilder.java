@@ -2,6 +2,7 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
@@ -12,6 +13,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @see {@link Command}
  */
 public class CommandBuilder extends BuilderCommand {
+
 
     /**
      * Constructs a new {@link CommandBuilder}.
@@ -41,4 +43,8 @@ public class CommandBuilder extends BuilderCommand {
         return this;
     }
 
+    @Override
+    public void execute(CommandContext commandContext) {
+
+    }
 }
