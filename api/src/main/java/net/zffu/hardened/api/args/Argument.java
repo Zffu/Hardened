@@ -7,6 +7,7 @@ package net.zffu.hardened.api.args;
 public class Argument {
 
     private ArgumentType<?> type;
+    private boolean optional;
 
     /**
      * Constructs a new {@link Argument}.
@@ -14,6 +15,16 @@ public class Argument {
      */
     public Argument(ArgumentType<?> type) {
         this.type = type;
+    }
+
+    /**
+     * Sets if the {@link Argument} is optional or not.
+     * @param isOptional is the {@link Argument} optional.
+     * @return
+     */
+    public Argument optional(boolean isOptional) {
+        this.optional = isOptional;
+        return this;
     }
 
 }
