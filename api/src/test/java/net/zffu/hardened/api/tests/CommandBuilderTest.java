@@ -8,8 +8,8 @@ import net.zffu.hardened.api.invoker.InvokerType;
 public class CommandBuilderTest {
 
     public static void main(String[] args) {
-        CommandContext playerContext = new CommandContext(new SimpleInvoker(InvokerType.PLAYER), null, ""); // Should work with the command.
-        CommandContext consoleContext = new CommandContext(new SimpleInvoker(InvokerType.CONSOLE), null, ""); // Should not work with the command.
+        CommandContext playerContext = new CommandContext(new SimpleInvoker(InvokerType.PLAYER), new String[] {"ez", "1"}, ""); // Should work with the command.
+        CommandContext consoleContext = new CommandContext(new SimpleInvoker(InvokerType.CONSOLE), new String[] {"ez", "2"}, ""); // Should not work with the command.
 
         Command command = new CommandBuilder("test") {
             @Override
