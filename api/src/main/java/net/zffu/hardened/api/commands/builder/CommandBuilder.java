@@ -2,7 +2,12 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.InvokerType;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
@@ -11,7 +16,9 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 0.0.1
  * @see {@link Command}
  */
-public abstract class CommandBuilder extends BuilderCommand {
+public class CommandBuilder extends BuilderCommand {
+
+    private Consumer<CommandContext> executeFunction;
 
     /**
      * Constructs a new {@link CommandBuilder}.
@@ -41,4 +48,18 @@ public abstract class CommandBuilder extends BuilderCommand {
         return this;
     }
 
+    /**
+     * Sets the executeFunction of the command.
+     * @param func
+     * @return
+     */
+    public CommandBuilder runAction(Consumer<CommandContext> func) {
+        this.executeFunction = func;
+        return this;
+    }
+
+    @Override
+    public void execute(CommandContext commandContext) {
+        if(executeFunction != null) executeFunction.accept(commandContext);
+    }
 }
