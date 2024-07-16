@@ -17,6 +17,9 @@ public class ArgumentFormattingTest {
         command.args(new Argument(ArgumentTypes.STRING.get()));
 
         CommandContext ctx = CommandContext.preFormatArguments(null, command, "test", new String[]{"test"});
+
+        ctx.get(0, String.class); // Shouldn't fail
+        ctx.get(0,Integer.class); // Should fail
     }
 
 }
