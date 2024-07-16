@@ -10,6 +10,7 @@
         <version>1.0.0</version>
     </parent>
 
+    <groupId>net.zffu.hardened</groupId>
     <artifactId>api</artifactId>
 
     <properties>
