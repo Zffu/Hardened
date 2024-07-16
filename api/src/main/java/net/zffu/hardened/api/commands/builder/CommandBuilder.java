@@ -11,7 +11,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 0.0.1
  * @see {@link Command}
  */
-public abstract class CommandBuilder extends BuilderCommand {
+public class CommandBuilder extends BuilderCommand {
 
     /**
      * Constructs a new {@link CommandBuilder}.
