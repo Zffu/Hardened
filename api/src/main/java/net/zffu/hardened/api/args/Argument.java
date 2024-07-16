@@ -11,6 +11,7 @@ public class Argument {
 
     /**
      * Constructs a new {@link Argument}.
+     *
      * @param type
      */
     public Argument(ArgumentType<?> type) {
@@ -19,6 +20,7 @@ public class Argument {
 
     /**
      * Sets if the {@link Argument} is optional or not.
+     *
      * @param isOptional is the {@link Argument} optional.
      * @return
      */
@@ -27,4 +29,19 @@ public class Argument {
         return this;
     }
 
+    /**
+     * Gets the {@link ArgumentType} of the {@link Argument}
+     * @return
+     */
+    public ArgumentType<?> getType() {
+        return this.type;
+    }
+
+    /**
+     * Returns if the {@link Argument} is optional or not.
+     * @return
+     */
+    public boolean isOptional() {
+        return this.optional;
+    }
 }

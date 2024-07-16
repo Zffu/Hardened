@@ -1,6 +1,8 @@
 package net.zffu.hardened.api.context;
 
+import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.args.ArgumentType;
+import net.zffu.hardened.api.commands.types.ArgCommand;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
@@ -54,4 +56,26 @@ public class CommandContext {
     public String getName() {
         return this.name;
     }
+
+    /**
+     * Preformats the provided arguments and generate a {@link CommandContext} with those.
+     * @param invoker the {@link CommandInvoker}
+     * @param command the {@link ArgCommand} for the arguments.
+     * @param name the name of the {@link net.zffu.hardened.api.commands.Command} used.
+     * @param args the args in a String form.
+     * @return
+     */
+    public static CommandContext preFormatArguments(CommandInvoker invoker, ArgCommand command, String name, String[] args) {
+        Object[] arguments = new Object[args.length];
+
+        int index = 0;
+        for(Argument argument : command.getArguments()) {
+            if(argument.isOptional()) continue; //todo: add optional argument handling
+            Object o = argument.getType().fromString(args[index]);
+
+            if(o != null) arguments[index] = o;
+        }
+        return new CommandContext(invoker, arguments, name);
+    }
+
 }
