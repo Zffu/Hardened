@@ -14,8 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.zffu</groupId>
-            <artifactId>hardened</artifactId>
+            <groupId>net.zffu.hardened</groupId>
+            <artifactId>api</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
