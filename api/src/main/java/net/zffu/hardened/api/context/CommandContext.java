@@ -11,7 +11,7 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 public class CommandContext {
 
     private CommandInvoker invoker;
-    private String[] args;
+    private Object[] args;
     private String name;
 
     /**
@@ -38,8 +38,8 @@ public class CommandContext {
      * Gets the arg from the {@link CommandContext} based on the {@link ArgumentType}.
      * @return
      */
-    public <T> T get(ArgumentType<T> type, int index) {
-        return type.fromString(this.args[index]);
+    public <T> T get(T t, int index) {
+        return (T) this.args[index];
     }
 
     /**
