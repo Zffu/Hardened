@@ -46,6 +46,16 @@ public class CommandBuilder extends BuilderCommand {
         return this;
     }
 
+    /**
+     * Sets the executeFunction of the command.
+     * @param func
+     * @return
+     */
+    public CommandBuilder runAction(Function<CommandContext, ?> func) {
+        this.executeFunction = func;
+        return this;
+    }
+
     @Override
     public void execute(CommandContext commandContext) {
         if(executeFunction != null) executeFunction.apply(commandContext);
