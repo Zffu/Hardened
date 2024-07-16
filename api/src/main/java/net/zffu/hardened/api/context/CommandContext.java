@@ -11,7 +11,7 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 public class CommandContext {
 
     private CommandInvoker invoker;
-    private Object[] args;
+    private Object[] args; // Preformatted args
     private String name;
 
     /**
@@ -38,8 +38,13 @@ public class CommandContext {
      * Gets the arg from the {@link CommandContext} based on the {@link ArgumentType}.
      * @return
      */
-    public <T> T get(ArgumentType<T> type, int index) {
-        return (T) this.args[index];
+    public <T> T get(int index, Class<T> clazz) {
+        Object o = this.args[index];
+
+        if(clazz.isAssignableFrom(o.getClass())) {
+            return (T) o;
+        }
+        throw new IllegalArgumentException("Tried getting the argument with index " + index + " with the " + clazz.getName() + " but argument value isn't of the same type!");
     }
 
     /**
