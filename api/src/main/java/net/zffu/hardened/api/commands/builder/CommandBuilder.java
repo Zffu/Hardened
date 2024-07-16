@@ -5,6 +5,8 @@ import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.InvokerType;
 
+import java.util.function.Function;
+
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
  * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
@@ -14,6 +16,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
  */
 public class CommandBuilder extends BuilderCommand {
 
+    private Function<CommandContext, ?> executeFunction;
 
     /**
      * Constructs a new {@link CommandBuilder}.
@@ -45,6 +48,6 @@ public class CommandBuilder extends BuilderCommand {
 
     @Override
     public void execute(CommandContext commandContext) {
-
+        if(executeFunction != null) executeFunction.apply(commandContext);
     }
 }
