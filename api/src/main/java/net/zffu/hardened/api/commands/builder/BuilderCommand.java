@@ -1,6 +1,8 @@
 package net.zffu.hardened.api.commands.builder;
 
+import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
+import net.zffu.hardened.api.commands.types.ArgCommand;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
 import net.zffu.hardened.api.invoker.InvokerType;
 
@@ -11,12 +13,15 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 0.0.1
  * @see {@link Command}
  */
-public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand {
+public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand, ArgCommand {
 
     private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
     protected InvokerType[] allowedTypes;
+
     protected String[] names;
+
+    protected Argument[] arguments;
 
     @Override
     public String[] getNames() {
@@ -33,4 +38,8 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
         return this.allowedTypes;
     }
 
+    @Override
+    public Argument[] getArguments() {
+        return this.arguments;
+    }
 }
