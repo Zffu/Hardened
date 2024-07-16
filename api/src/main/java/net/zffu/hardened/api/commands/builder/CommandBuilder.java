@@ -1,5 +1,6 @@
 package net.zffu.hardened.api.commands.builder;
 
+import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.invoker.InvokerType;
 
@@ -27,6 +28,16 @@ public abstract class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder allowed(InvokerType... types) {
         this.allowedTypes = types;
+        return this;
+    }
+
+    /**
+     * Sets the {@link Argument} of the command.
+     * @param args the args.
+     * @return
+     */
+    public CommandBuilder args(Argument... args) {
+        this.arguments = args;
         return this;
     }
 
