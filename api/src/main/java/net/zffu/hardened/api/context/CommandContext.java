@@ -38,7 +38,7 @@ public class CommandContext {
      * Gets the arg from the {@link CommandContext} based on the {@link ArgumentType}.
      * @return
      */
-    public <T> T get(T t, int index) {
+    public <T> T get(ArgumentType<T> type, int index) {
         return (T) this.args[index];
     }
 
