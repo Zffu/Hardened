@@ -17,10 +17,10 @@ public class CommandContext {
     /**
      * <p>Constructs a new {@link CommandContext}.</p>
      * @param invoker the {@link CommandInvoker}
-     * @param args the args
+     * @param args the preformatted args
      * @param name the name
      */
-    public CommandContext(CommandInvoker invoker, String[] args, String name) {
+    public CommandContext(CommandInvoker invoker, Object[] args, String name) {
         this.invoker = invoker;
         this.args = args;
         this.name = name;
