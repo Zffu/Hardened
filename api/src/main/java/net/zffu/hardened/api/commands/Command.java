@@ -11,10 +11,16 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 public interface Command<T extends CommandValidator> {
 
     /**
-     * Gets the primary name and aliases of the command.
-     * @return all of the command names of the command.
+     * Gets the primary name of the command.
+     * @return
      */
-    String[] getNames();
+    String getPrimaryName();
+
+    /**
+     * Gets the aliases of the command.
+     * @return
+     */
+    String[] getAliases();
 
     /**
      * <p>Gets the {@link CommandValidator} for that {@link Command}.</p>
@@ -34,7 +40,7 @@ public interface Command<T extends CommandValidator> {
      * @param commandContext
      */
     default void run(CommandContext commandContext) {
-        if(getValidator().validate(this, commandContext)) execute(commandContext);
+        if(getValidator() == null || getValidator().validate(this, commandContext)) execute(commandContext);
     }
 
 }

@@ -22,10 +22,20 @@ public class CommandBuilder extends BuilderCommand {
 
     /**
      * Constructs a new {@link CommandBuilder}.
-     * @param names the command names.
+     * @param primaryName the command name.
      */
-    public CommandBuilder(String... names) {
-        this.names = names;
+    public CommandBuilder(String primaryName) {
+        this.primaryName = primaryName;
+    }
+
+    /**
+     * Constructs a new {@link CommandBuilder}.
+     * @param primaryName the command name.
+     * @param aliases the aliases.
+     */
+    public CommandBuilder(String primaryName, String... aliases) {
+        this.primaryName = primaryName;
+        this.aliases = aliases;
     }
 
     /**

@@ -59,13 +59,11 @@ public class CommandContext {
 
     /**
      * Preformats the provided arguments and generate a {@link CommandContext} with those.
-     * @param invoker the {@link CommandInvoker}
      * @param command the {@link ArgCommand} for the arguments.
-     * @param name the name of the {@link net.zffu.hardened.api.commands.Command} used.
      * @param args the args in a String form.
      * @return
      */
-    public static CommandContext preFormatArguments(CommandInvoker invoker, ArgCommand command, String name, String[] args) {
+    public static Object[] preFormatArguments(ArgCommand command, String[] args) {
         Object[] arguments = new Object[args.length];
 
         int index = 0;
@@ -75,7 +73,7 @@ public class CommandContext {
 
             if(o != null) arguments[index] = o;
         }
-        return new CommandContext(invoker, arguments, name);
+        return arguments;
     }
 
 }
