@@ -41,7 +41,7 @@ public class ReflectionSpigotCommandRegistrar extends SpigotCommandRegistrar {
 
     private void initMap() {
         try {
-            Field field = Server.class.getDeclaredField("commandMap");
+            Field field = Bukkit.getServer().getClass().getDeclaredField("commandMap");
             field.setAccessible(true);
             COMMAND_MAP = (CommandMap) field.get(Bukkit.getServer());
         } catch (Exception e) {
