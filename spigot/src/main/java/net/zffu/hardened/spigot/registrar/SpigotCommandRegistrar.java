@@ -9,7 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Arrays;
 
 /**
- * A {@link net.zffu.hardened.api.registrar.CommandRegistrar} for Spigot platforms.
+ * A reflection-less {@link net.zffu.hardened.api.registrar.CommandRegistrar} for Spigot platforms.
+ * <p>Since spigot api is bad, aliases aren't supported by the reflection-less version.</p>
  * @since 1.0.0
  */
 public class SpigotCommandRegistrar implements CommandRegistrar {
@@ -26,6 +27,5 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
 
     public void register(Command<?> command) {
         this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command));
-        if(command.getAliases() != null && command.getAliases().length > 0) this.plugin.getCommand(command.getPrimaryName()).setAliases(Arrays.asList(command.getAliases()));
     }
 }
