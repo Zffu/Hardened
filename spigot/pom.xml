@@ -33,5 +33,10 @@
             <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>net.zffu.hardened</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>
