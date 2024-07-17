@@ -5,7 +5,7 @@ import net.zffu.hardened.api.args.types.StringArgument;
 
 /**
  * The available types of {@link ArgumentType} in the Hardened API.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public enum ArgumentTypes {
 
