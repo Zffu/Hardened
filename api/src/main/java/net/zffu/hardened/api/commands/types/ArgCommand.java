@@ -4,7 +4,7 @@ import net.zffu.hardened.api.args.Argument;
 
 /**
  * A command that has {@link Argument}.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public interface ArgCommand {
 
