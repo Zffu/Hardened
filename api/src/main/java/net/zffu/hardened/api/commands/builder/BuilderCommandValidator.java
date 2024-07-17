@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * An implementation of a {@link CommandValidator} for the {@link BuilderCommand}
- * @since 0.0.1
+ * @since 1.0.0
  * @see {@link BuilderCommand}
  */
 public class BuilderCommandValidator implements CommandValidator<BuilderCommand> {
