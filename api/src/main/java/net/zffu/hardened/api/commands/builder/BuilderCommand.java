@@ -3,6 +3,7 @@ package net.zffu.hardened.api.commands.builder;
 import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.ArgCommand;
+import net.zffu.hardened.api.commands.types.DisabledCommand;
 import net.zffu.hardened.api.commands.types.PermissionCommand;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
 import net.zffu.hardened.api.invoker.InvokerType;
@@ -14,7 +15,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 0.0.1
  * @see {@link Command}
  */
-public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand, ArgCommand, PermissionCommand {
+public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand, ArgCommand, PermissionCommand, DisabledCommand {
 
     private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
@@ -25,6 +26,8 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     protected Argument[] arguments;
 
     protected String permission;
+
+    protected boolean disabled;
 
     @Override
     public String[] getNames() {
@@ -49,5 +52,10 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     @Override
     public String getRequiredPermission() {
         return this.permission;
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return this.disabled;
     }
 }
