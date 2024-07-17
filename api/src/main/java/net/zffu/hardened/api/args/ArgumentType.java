@@ -2,7 +2,7 @@ package net.zffu.hardened.api.args;
 
 /**
  * A type of argument values that is used in {@link net.zffu.hardened.api.commands.Command}
- @since 0.0.1
+ @since 1.0.0
  */
 public interface ArgumentType<T> {
 
