@@ -19,9 +19,11 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
 
     private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
+    protected String primaryName;
+
     protected InvokerType[] allowedTypes;
 
-    protected String[] names;
+    protected String[] aliases;
 
     protected Argument[] arguments;
 
@@ -30,8 +32,13 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     protected boolean disabled;
 
     @Override
-    public String[] getNames() {
-        return this.names;
+    public String getPrimaryName() {
+        return primaryName;
+    }
+
+    @Override
+    public String[] getAliases() {
+        return aliases;
     }
 
     @Override
