@@ -3,6 +3,7 @@ package net.zffu.hardened.spigot.registrar;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.registrar.CommandRegistrar;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * A {@link net.zffu.hardened.api.registrar.CommandRegistrar} for Spigot platforms.
@@ -10,17 +11,17 @@ import org.bukkit.plugin.Plugin;
  */
 public class SpigotCommandRegistrar implements CommandRegistrar {
 
-    private Plugin plugin;
+    private JavaPlugin plugin;
 
     /**
      * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}
      * @param plugin
      */
-    public SpigotCommandRegistrar(Plugin plugin) {
+    public SpigotCommandRegistrar(JavaPlugin plugin) {
         this.plugin = plugin;
     }
 
     public void register(Command<?> command) {
-        //todo: add registration
+
     }
 }
