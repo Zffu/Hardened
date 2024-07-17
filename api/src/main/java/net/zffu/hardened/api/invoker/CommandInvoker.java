@@ -12,4 +12,11 @@ public interface CommandInvoker {
      */
     InvokerType getType();
 
+    /**
+     * Determines if the {@link CommandInvoker} has the provided permission.
+     * @param permission the permission identifier
+     * @return
+     */
+    boolean hasPermission(String permission);
+
 }
