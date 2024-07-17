@@ -68,6 +68,16 @@ public class CommandBuilder extends BuilderCommand {
         return this;
     }
 
+    /**
+     * Should the command be disabled or not.
+     * @param isDisabled
+     * @return
+     */
+    public CommandBuilder disabled(boolean isDisabled) {
+        this.disabled = isDisabled;
+        return this;
+    }
+
     @Override
     public void execute(CommandContext commandContext) {
         if(executeFunction != null) executeFunction.accept(commandContext);
