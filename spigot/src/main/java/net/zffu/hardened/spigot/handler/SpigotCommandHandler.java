@@ -28,13 +28,7 @@ public class SpigotCommandHandler implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         CommandContext context = new CommandContext(fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments((ArgCommand) this.command, args) : null), label);
-
-        if(!this.command.getValidator().validate(this.command, context)) {
-            //todo: add validator fail handler
-            return false;
-        }
-
-        this.command.execute(context);
+        this.command.run(context);
         return true;
     }
 
