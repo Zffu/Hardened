@@ -2,6 +2,7 @@ package net.zffu.hardened.spigot.registrar;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.registrar.CommandRegistrar;
+import net.zffu.hardened.spigot.handler.SpigotCommandHandler;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,6 +23,6 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
     }
 
     public void register(Command<?> command) {
-
+        this.plugin.getCommand(command.getNames()[0]).setExecutor(new SpigotCommandHandler(command));
     }
 }
