@@ -4,7 +4,7 @@ import net.zffu.hardened.api.args.ArgumentType;
 
 /**
  * An Integer {@link ArgumentType}.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public class IntegerArgument implements ArgumentType<Integer> {
 
