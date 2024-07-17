@@ -2,7 +2,7 @@ package net.zffu.hardened.api.invoker;
 
 /**
  * Possible types of {@link CommandInvoker}.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public enum InvokerType {
 
