@@ -37,6 +37,7 @@
             <groupId>net.zffu.hardened</groupId>
             <artifactId>api</artifactId>
             <version>1.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
