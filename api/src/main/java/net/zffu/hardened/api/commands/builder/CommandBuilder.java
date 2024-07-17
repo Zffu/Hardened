@@ -58,6 +58,16 @@ public class CommandBuilder extends BuilderCommand {
         return this;
     }
 
+    /**
+     * Gets the permission required to run the command.
+     * @param permission the permission.
+     * @return
+     */
+    public CommandBuilder permission(String permission) {
+        this.permission = permission;
+        return this;
+    }
+
     @Override
     public void execute(CommandContext commandContext) {
         if(executeFunction != null) executeFunction.accept(commandContext);
