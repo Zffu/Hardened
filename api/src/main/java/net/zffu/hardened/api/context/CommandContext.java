@@ -59,9 +59,7 @@ public class CommandContext {
 
     /**
      * Preformats the provided arguments and generate a {@link CommandContext} with those.
-     * @param invoker the {@link CommandInvoker}
      * @param command the {@link ArgCommand} for the arguments.
-     * @param name the name of the {@link net.zffu.hardened.api.commands.Command} used.
      * @param args the args in a String form.
      * @return
      */
