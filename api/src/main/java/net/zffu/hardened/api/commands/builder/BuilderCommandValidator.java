@@ -15,7 +15,7 @@ public class BuilderCommandValidator implements CommandValidator<BuilderCommand>
     @Override
     public boolean validate(BuilderCommand command, CommandContext context) {
         //todo: optimize this logic to not have to use Arrays.asList
-        if(command.allowedTypes == null || Arrays.asList(command.allowedTypes).contains(context.getInvoker().getType())) return true;
-        return false;
+        if(command.allowedTypes != null && !Arrays.asList(command.allowedTypes).contains(context.getInvoker().getType())) return false;
+        return true;
     }
 }
