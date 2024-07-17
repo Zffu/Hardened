@@ -9,14 +9,14 @@ import org.bukkit.command.CommandSender;
  */
 public class OtherInvoker implements CommandInvoker {
 
-    private CommandSender commandSender;
+    private CommandSender sender;
 
     /**
      * Constructs an new {@link OtherInvoker}.
      * @param sender
      */
     public OtherInvoker(CommandSender sender) {
-        this.commandSender = sender;
+        this.sender = sender;
     }
 
     public InvokerType getType() {
@@ -24,6 +24,11 @@ public class OtherInvoker implements CommandInvoker {
     }
 
     public boolean hasPermission(String permission) {
-        return this.commandSender.hasPermission(permission);
+        return this.sender.hasPermission(permission);
     }
+
+    public CommandSender getCommandSender() {
+        return this.sender;
+    }
+
 }
