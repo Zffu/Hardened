@@ -6,6 +6,8 @@ import net.zffu.hardened.spigot.handler.SpigotCommandHandler;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Arrays;
+
 /**
  * A {@link net.zffu.hardened.api.registrar.CommandRegistrar} for Spigot platforms.
  * @since 1.0.0
@@ -23,6 +25,7 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
     }
 
     public void register(Command<?> command) {
-        this.plugin.getCommand(command.getNames()[0]).setExecutor(new SpigotCommandHandler(command));
+        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command));
+        if(command.getAliases() != null && command.getAliases().length > 0) this.plugin.getCommand(command.getPrimaryName()).setAliases(Arrays.asList(command.getAliases()));
     }
 }
