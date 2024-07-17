@@ -18,7 +18,7 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
     protected JavaPlugin plugin;
 
     /**
-     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}
+     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link JavaPlugin}
      * @param plugin
      */
     public SpigotCommandRegistrar(JavaPlugin plugin) {

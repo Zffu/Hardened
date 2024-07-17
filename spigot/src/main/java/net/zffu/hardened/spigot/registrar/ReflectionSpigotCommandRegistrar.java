@@ -20,7 +20,7 @@ public class ReflectionSpigotCommandRegistrar extends SpigotCommandRegistrar {
     private String namespace;
 
     /**
-     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}
+     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link JavaPlugin}
      * @param plugin
      */
     public ReflectionSpigotCommandRegistrar(JavaPlugin plugin) {
@@ -30,7 +30,7 @@ public class ReflectionSpigotCommandRegistrar extends SpigotCommandRegistrar {
     }
 
     /**
-     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}. The registrar will register commands under the provided namespace
+     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link JavaPlugin}. The registrar will register commands under the provided namespace
      * @param plugin
      */
     public ReflectionSpigotCommandRegistrar(JavaPlugin plugin, String namespace) {
