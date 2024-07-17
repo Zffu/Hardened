@@ -17,28 +17,41 @@ public class ReflectionSpigotCommandRegistrar extends SpigotCommandRegistrar {
 
     private static CommandMap COMMAND_MAP;
 
+    private String namespace;
 
     /**
      * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}
-     *
      * @param plugin
      */
     public ReflectionSpigotCommandRegistrar(JavaPlugin plugin) {
         super(plugin);
-        if(COMMAND_MAP == null) {
-            try {
-                Field field = Server.class.getDeclaredField("commandMap");
-                field.setAccessible(true);
-                COMMAND_MAP = (CommandMap) field.get(Bukkit.getServer());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        this.namespace = "minecraft";
+        if(COMMAND_MAP == null) initMap();
+    }
+
+    /**
+     * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}. The registrar will register commands under the provided namespace
+     * @param plugin
+     */
+    public ReflectionSpigotCommandRegistrar(JavaPlugin plugin, String namespace) {
+        super(plugin);
+        this.namespace = namespace;
+        if(COMMAND_MAP == null) initMap();
+    }
+
+    private void initMap() {
+        try {
+            Field field = Server.class.getDeclaredField("commandMap");
+            field.setAccessible(true);
+            COMMAND_MAP = (CommandMap) field.get(Bukkit.getServer());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void register(Command<?> command) {
         SpigotCommand cmd = new SpigotCommand(command);
-        COMMAND_MAP.register("minecraft",cmd);
+        COMMAND_MAP.register(this.namespace,cmd);
     }
 }
