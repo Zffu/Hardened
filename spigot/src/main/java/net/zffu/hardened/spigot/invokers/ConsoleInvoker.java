@@ -23,4 +23,9 @@ public class ConsoleInvoker implements CommandInvoker {
     public boolean hasPermission(String permission) {
         return this.sender.hasPermission(permission);
     }
+
+    public CommandSender getSender() {
+        return this.sender;
+    }
+
 }
