@@ -1,5 +1,7 @@
 package net.zffu.hardened.spigot.handler;
 
+import net.zffu.hardened.api.commands.types.ArgCommand;
+import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.spigot.invokers.OtherInvoker;
 import net.zffu.hardened.spigot.invokers.PlayerInvoker;
@@ -15,13 +17,23 @@ import org.bukkit.entity.Player;
 public class SpigotCommandHandler implements CommandExecutor {
 
     private net.zffu.hardened.api.commands.Command<?> command;
+    private boolean parseArgs;
 
     public SpigotCommandHandler(net.zffu.hardened.api.commands.Command<?> command) {
         this.command = command;
+        this.parseArgs = this.command instanceof ArgCommand;
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        return false;
+        CommandContext context = new CommandContext(fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments((ArgCommand) this.command, args) : null), label);
+
+        if(!this.command.getValidator().validate(this.command, context)) {
+            //todo: add validator fail handler
+            return false;
+        }
+
+        this.command.execute(context);
+        return true;
     }
 
     /**
