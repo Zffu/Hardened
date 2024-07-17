@@ -4,7 +4,7 @@ import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
  * A {@link net.zffu.hardened.api.commands.Command} that can onlu run with specific {@link net.zffu.hardened.api.invoker.InvokerType}.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public interface TypeGatedCommand {
 
