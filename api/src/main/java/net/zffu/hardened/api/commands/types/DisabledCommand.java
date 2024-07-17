@@ -2,7 +2,7 @@ package net.zffu.hardened.api.commands.types;
 
 /**
  * A {@link net.zffu.hardened.api.commands.Command} that can be disabled or not.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public interface DisabledCommand {
 
