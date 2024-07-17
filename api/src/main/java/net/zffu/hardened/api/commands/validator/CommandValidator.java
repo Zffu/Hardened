@@ -6,7 +6,7 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
  * <p>Validates that a {@link Command} can be ran by the provided {@link CommandInvoker}.</p>
- * @since 0.0.1
+ * @since 1.0.0
  */
 public interface CommandValidator<T extends Command > {
 

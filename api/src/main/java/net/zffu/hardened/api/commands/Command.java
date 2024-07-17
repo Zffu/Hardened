@@ -6,7 +6,7 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
  * The base of every command created trough the Hardened API.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public interface Command<T extends CommandValidator> {
 

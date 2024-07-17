@@ -13,7 +13,7 @@ import java.util.function.Supplier;
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
  * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
  * <p>This means that this can be used only if you do not mind the extra memory usage that will come from the empty variable fields from the unused interfaces.</p>
- * @since 0.0.1
+ * @since 1.0.0
  * @see {@link Command}
  */
 public class CommandBuilder extends BuilderCommand {
@@ -55,6 +55,26 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder runAction(Consumer<CommandContext> func) {
         this.executeFunction = func;
+        return this;
+    }
+
+    /**
+     * Gets the permission required to run the command.
+     * @param permission the permission.
+     * @return
+     */
+    public CommandBuilder permission(String permission) {
+        this.permission = permission;
+        return this;
+    }
+
+    /**
+     * Should the command be disabled or not.
+     * @param isDisabled
+     * @return
+     */
+    public CommandBuilder disabled(boolean isDisabled) {
+        this.disabled = isDisabled;
         return this;
     }
 

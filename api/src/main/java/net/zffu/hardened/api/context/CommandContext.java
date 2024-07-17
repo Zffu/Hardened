@@ -7,7 +7,7 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 
 /**
  * The context of a {@link net.zffu.hardened.api.commands.Command} execution.
- * @since 0.0.1
+ * @since 1.0.0
  * @see {@link CommandInvoker}
  */
 public class CommandContext {

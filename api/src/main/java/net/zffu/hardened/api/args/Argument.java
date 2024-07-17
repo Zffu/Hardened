@@ -2,7 +2,7 @@ package net.zffu.hardened.api.args;
 
 /**
  * An argument of a {@link net.zffu.hardened.api.commands.Command}.
- * @since 0.0.1
+ * @since 1.0.0
  */
 public class Argument {
 

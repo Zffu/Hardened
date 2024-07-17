@@ -3,6 +3,8 @@ package net.zffu.hardened.api.commands.builder;
 import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.types.ArgCommand;
+import net.zffu.hardened.api.commands.types.DisabledCommand;
+import net.zffu.hardened.api.commands.types.PermissionCommand;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
 import net.zffu.hardened.api.invoker.InvokerType;
 
@@ -10,10 +12,10 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
  * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
  * <p>This means that this can be used only if you do not mind the extra memory usage that will come from the empty variable fields from the unused interfaces.</p>
- * @since 0.0.1
+ * @since 1.0.0
  * @see {@link Command}
  */
-public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand, ArgCommand {
+public abstract class BuilderCommand implements Command<BuilderCommandValidator>, TypeGatedCommand, ArgCommand, PermissionCommand, DisabledCommand {
 
     private static BuilderCommandValidator validator = new BuilderCommandValidator();
 
@@ -22,6 +24,10 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     protected String[] names;
 
     protected Argument[] arguments;
+
+    protected String permission;
+
+    protected boolean disabled;
 
     @Override
     public String[] getNames() {
@@ -41,5 +47,15 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     @Override
     public Argument[] getArguments() {
         return this.arguments;
+    }
+
+    @Override
+    public String getRequiredPermission() {
+        return this.permission;
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return this.disabled;
     }
 }
