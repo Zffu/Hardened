@@ -6,10 +6,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.CommandMap;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.C;
 
 import java.lang.reflect.Field;
-import java.util.Map;
 
 /**
  * A {@link SpigotCommandRegistrar} with Reflection.
