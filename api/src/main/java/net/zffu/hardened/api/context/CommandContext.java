@@ -65,7 +65,7 @@ public class CommandContext {
      * @param args the args in a String form.
      * @return
      */
-    public static CommandContext preFormatArguments(CommandInvoker invoker, ArgCommand command, String name, String[] args) {
+    public static Object[] preFormatArguments(ArgCommand command, String[] args) {
         Object[] arguments = new Object[args.length];
 
         int index = 0;
@@ -75,7 +75,7 @@ public class CommandContext {
 
             if(o != null) arguments[index] = o;
         }
-        return new CommandContext(invoker, arguments, name);
+        return arguments;
     }
 
 }
