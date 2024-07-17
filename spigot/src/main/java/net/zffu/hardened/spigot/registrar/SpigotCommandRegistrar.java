@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 public class SpigotCommandRegistrar implements CommandRegistrar {
 
-    private JavaPlugin plugin;
+    protected JavaPlugin plugin;
 
     /**
      * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link Plugin}
