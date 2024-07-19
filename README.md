@@ -1,11 +1,12 @@
 # Hardened
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-A WIP Minecraft Command API.
+A Minecraft Command API that aims to support most platforms.
+
+### Supported Platforms
+- Spigot
 
 ## Contributions
-
-Currently, Hardened is in an early WIP state that isn't very favorable for contributions.
 
 Any contribution is greatly appreciated, before actually making your pull request make sure that everything works like intended.
 
