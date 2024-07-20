@@ -7,6 +7,7 @@ import net.zffu.hardened.api.commands.types.PermissionCommand;
 /**
  * <p>An invoker is something that is at the origin of a command execution.</p>
  * <p>The {@link CommandInvoker} will be provided by the {@link CommandContext} when a command gets executed.</p>
+ * @since 1.0.0
  */
 public interface CommandInvoker {
 
