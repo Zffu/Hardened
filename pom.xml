@@ -13,6 +13,7 @@
         <module>api</module>
         <module>api-examples</module>
         <module>spigot</module>
+        <module>paper</module>
     </modules>
 
     <properties>
