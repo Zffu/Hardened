@@ -4,7 +4,7 @@ import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
 
 /**
- * The available types of {@link ArgumentType} in the Hardened API.
+ * <p>An enum containing instances of each argument type that is in the Hardened API.</p>
  * @since 1.0.0
  */
 public enum ArgumentTypes {
