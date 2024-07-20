@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.types;
 
 import net.zffu.hardened.api.args.Argument;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A command that has {@link Argument}.
@@ -12,6 +13,6 @@ public interface ArgCommand {
      * Gets the {@link Argument} of the {@link net.zffu.hardened.api.commands.Command}.
      * @return
      */
-    Argument[] getArguments();
+    @NotNull Argument[] getArguments();
 
 }
