@@ -1,5 +1,7 @@
 package net.zffu.hardened.api.args;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * An argument of a {@link net.zffu.hardened.api.commands.Command}.
  * @since 1.0.0
@@ -14,7 +16,7 @@ public class Argument {
      *
      * @param type
      */
-    public Argument(ArgumentType<?> type) {
+    public Argument(@NotNull ArgumentType<?> type) {
         this.type = type;
     }
 
@@ -33,7 +35,7 @@ public class Argument {
      * Gets the {@link ArgumentType} of the {@link Argument}
      * @return
      */
-    public ArgumentType<?> getType() {
+    public @NotNull ArgumentType<?> getType() {
         return this.type;
     }
 
