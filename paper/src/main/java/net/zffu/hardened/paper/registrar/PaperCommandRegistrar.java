@@ -1,7 +1,6 @@
 package net.zffu.hardened.paper.registrar;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.sun.tools.javac.util.List;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
