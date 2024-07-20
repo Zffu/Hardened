@@ -15,7 +15,7 @@ public class CustomCommandValidator implements CommandValidator<CustomCommandExa
 
     @Override
     public boolean validate(CustomCommandExample command, CommandContext invoker) {
-        if(Arrays.asList(command.getAllowedInvokers()).contains(invoker.getInvoker().getType())) return true; // Could simplify that but its for the sake of the example
+        if(command.getAllowedInvokers().contains(invoker.getInvoker().getType())) return true; // Could simplify that but its for the sake of the example
         return false;
     }
 
