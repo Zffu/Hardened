@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * <p>A command that only allows specific types to execute its logic.</p>
+ * <p>A command that only allows specific invoker types to execute its logic.</p>
  * <p><b>Warn: </b>No checks for this are there by default, those checks should be implemented in the {@link CommandValidator}</p>
  * @since 1.0.0
  */
