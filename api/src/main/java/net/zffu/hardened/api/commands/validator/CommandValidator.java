@@ -3,6 +3,7 @@ package net.zffu.hardened.api.commands.validator;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * <p>Validates that a {@link Command} can be ran by the provided {@link CommandInvoker}.</p>
@@ -16,6 +17,6 @@ public interface CommandValidator<T extends Command > {
      * @param invoker the invoker.
      * @return true if the invoker is allowed to run the command or else false
      */
-    boolean validate(T command, CommandContext invoker);
+    boolean validate(@NotNull T command, @NotNull CommandContext invoker);
 
 }
