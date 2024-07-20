@@ -1,8 +1,11 @@
 package net.zffu.hardened.api.args;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
- * An argument of a {@link net.zffu.hardened.api.commands.Command}.
+ * <p>A command argument in the Hardened API.</p>
  * @since 1.0.0
+ * @see {@link ArgumentType}
  */
 public class Argument {
 
@@ -10,19 +13,16 @@ public class Argument {
     private boolean optional;
 
     /**
-     * Constructs a new {@link Argument}.
-     *
+     * <p>Creates a new {@link Argument}.</p>
      * @param type
      */
-    public Argument(ArgumentType<?> type) {
+    public Argument(@NotNull ArgumentType<?> type) {
         this.type = type;
     }
 
     /**
-     * Sets if the {@link Argument} is optional or not.
-     *
+     * <p>Sets if the {@link Argument} is optional or not.</p>
      * @param isOptional is the {@link Argument} optional.
-     * @return
      */
     public Argument optional(boolean isOptional) {
         this.optional = isOptional;
@@ -30,15 +30,15 @@ public class Argument {
     }
 
     /**
-     * Gets the {@link ArgumentType} of the {@link Argument}
-     * @return
+     * <p>Gets the type of the argument.</p>
+     * @return the {@link ArgumentType}
      */
-    public ArgumentType<?> getType() {
+    public @NotNull ArgumentType<?> getType() {
         return this.type;
     }
 
     /**
-     * Returns if the {@link Argument} is optional or not.
+     * <p>Returns if the {@link Argument} is optional or not.</p>
      * @return
      */
     public boolean isOptional() {

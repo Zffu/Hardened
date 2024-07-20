@@ -1,8 +1,9 @@
 package net.zffu.hardened.api.invoker;
 
 /**
- * Possible types of {@link CommandInvoker}.
+ * <p>Possible types of an {@link CommandInvoker}. Those types are assigned to invokers when they are created by the platform implementations.</p>
  * @since 1.0.0
+ * @see {@link CommandInvoker}
  */
 public enum InvokerType {
 
