@@ -16,9 +16,9 @@ public interface CommandValidator<T extends Command > {
     /**
      * <p>Performs validations on the provided command context for the provided command instance.</p>
      * @param command the {@link Command}
-     * @param invoker the {@link CommandContext}
+     * @param context the {@link CommandContext}
      * @return true or false
      */
-    boolean validate(@NotNull T command, @NotNull CommandContext invoker);
+    boolean validate(@NotNull T command, @NotNull CommandContext context);
 
 }
