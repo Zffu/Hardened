@@ -76,7 +76,7 @@ public class CommandContext {
         int index = 0;
         for(Argument argument : command.getArguments()) {
             if(argument.isOptional()) continue; //todo: add optional argument handling
-            Object o = argument.getType().fromString(args[index]);
+            Object o = argument.getType().get().fromString(args[index]);
 
             if(o != null) arguments[index] = o;
         }
