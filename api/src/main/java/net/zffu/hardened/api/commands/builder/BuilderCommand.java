@@ -8,6 +8,9 @@ import net.zffu.hardened.api.commands.types.PermissionCommand;
 import net.zffu.hardened.api.commands.types.TypeGatedCommand;
 import net.zffu.hardened.api.invoker.InvokerType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
  * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
@@ -21,7 +24,7 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
 
     protected String primaryName;
 
-    protected InvokerType[] allowedTypes;
+    protected List<InvokerType> allowedTypes;
 
     protected String[] aliases;
 
@@ -47,7 +50,7 @@ public abstract class BuilderCommand implements Command<BuilderCommandValidator>
     }
 
     @Override
-    public InvokerType[] getAllowedInvokers() {
+    public List<InvokerType> getAllowedInvokers() {
         return this.allowedTypes;
     }
 

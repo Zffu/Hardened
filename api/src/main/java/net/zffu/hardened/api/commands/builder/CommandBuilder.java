@@ -5,6 +5,8 @@ import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.InvokerType;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -44,7 +46,7 @@ public class CommandBuilder extends BuilderCommand {
      * @return
      */
     public CommandBuilder allowed(InvokerType... types) {
-        this.allowedTypes = types;
+        this.allowedTypes = Arrays.asList(types);
         return this;
     }
 
