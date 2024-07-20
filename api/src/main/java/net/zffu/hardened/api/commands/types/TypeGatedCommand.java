@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.types;
 
 import net.zffu.hardened.api.invoker.InvokerType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -14,6 +15,6 @@ public interface TypeGatedCommand {
      * Gets the list of the {@link InvokerType} that are allowed to run the command.
      * @return {@link InvokerType}.
      */
-    List<InvokerType> getAllowedInvokers();
+    @NotNull List<InvokerType> getAllowedInvokers();
 
 }
