@@ -1,18 +1,21 @@
 package net.zffu.hardened.api.args;
 
+import net.zffu.hardened.api.commands.Command;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A type of argument values that is used in {@link net.zffu.hardened.api.commands.Command}
- @since 1.0.0
+ * <p>A type of a command argument in the Hardened API.</p>
+ * @param <T>
+ * @since 1.0.0
+ * @see {@link Command}
  */
 public interface ArgumentType<T> {
 
     /**
-     * Converts the String into a {@link ArgumentType} value.
-     * @param s the string.
-     * @return the value.
+     * <p>Parses the raw string argument into an argument value corresponding to the argument type.</p>
+     * @param s
+     * @return
      */
     @Nullable T fromString(@NotNull String s);
 
