@@ -1,19 +1,21 @@
 package net.zffu.hardened.api.commands.types;
 
+import net.zffu.hardened.api.commands.validator.CommandValidator;
 import net.zffu.hardened.api.invoker.InvokerType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 /**
- * A {@link net.zffu.hardened.api.commands.Command} that can onlu run with specific {@link net.zffu.hardened.api.invoker.InvokerType}.
+ * <p>A command that only allows specific types to execute its logic.</p>
+ * <p><b>Warn: </b>No checks for this are there by default, those checks should be implemented in the {@link CommandValidator}</p>
  * @since 1.0.0
  */
 public interface TypeGatedCommand {
 
     /**
-     * Gets the list of the {@link InvokerType} that are allowed to run the command.
-     * @return {@link InvokerType}.
+     * <p>Gets all of the allowed {@link InvokerType} that can run the command logic.</p>
+     * @return an {@link List<InvokerType>} containing the allowed {@link InvokerType}.
      */
     @NotNull List<InvokerType> getAllowedInvokers();
 
