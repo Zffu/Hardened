@@ -9,14 +9,14 @@ import org.jetbrains.annotations.NotNull;
  */
 public class Argument {
 
-    private ArgumentType<?> type;
+    private ArgumentTypes type;
     private boolean optional;
 
     /**
      * <p>Creates a new {@link Argument}.</p>
      * @param type
      */
-    public Argument(@NotNull ArgumentType<?> type) {
+    public Argument(@NotNull ArgumentTypes type) {
         this.type = type;
     }
 
@@ -31,9 +31,9 @@ public class Argument {
 
     /**
      * <p>Gets the type of the argument.</p>
-     * @return the {@link ArgumentType}
+     * @return the {@link ArgumentTypes}
      */
-    public @NotNull ArgumentType<?> getType() {
+    public @NotNull ArgumentTypes getType() {
         return this.type;
     }
 

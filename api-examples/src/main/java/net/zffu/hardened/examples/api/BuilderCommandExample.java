@@ -20,7 +20,7 @@ public class BuilderCommandExample {
         })
         // Adds properties to the CommandBuilder.
         .allowed(InvokerType.PLAYER) // Makes sure only players can run this command
-        .args(new Argument(ArgumentTypes.STRING.get())); // Adds a string argument
+        .args(new Argument(ArgumentTypes.STRING)); // Adds a string argument
     }
 
 }
