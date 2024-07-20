@@ -4,6 +4,8 @@ import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.args.ArgumentType;
 import net.zffu.hardened.api.commands.types.ArgCommand;
 import net.zffu.hardened.api.invoker.CommandInvoker;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The context of a {@link net.zffu.hardened.api.commands.Command} execution.
@@ -22,7 +24,7 @@ public class CommandContext {
      * @param args the preformatted args
      * @param name the name
      */
-    public CommandContext(CommandInvoker invoker, Object[] args, String name) {
+    public CommandContext(@NotNull CommandInvoker invoker, @Nullable Object[] args, @NotNull String name) {
         this.invoker = invoker;
         this.args = args;
         this.name = name;
@@ -32,7 +34,7 @@ public class CommandContext {
      * Gets the {@link CommandInvoker} of the {@link CommandContext}.
      * @return
      */
-    public CommandInvoker getInvoker() {
+    public @NotNull CommandInvoker getInvoker() {
         return this.invoker;
     }
 
@@ -40,7 +42,7 @@ public class CommandContext {
      * Gets the arg from the {@link CommandContext} based on the {@link ArgumentType}.
      * @return
      */
-    public <T> T get(int index, Class<T> clazz) {
+    public @Nullable <T> T get(int index, @NotNull Class<T> clazz) {
         Object o = this.args[index];
 
         if(clazz.isAssignableFrom(o.getClass())) {
@@ -53,7 +55,7 @@ public class CommandContext {
      * Gets the name of the command used in the {@link CommandContext}.
      * @return
      */
-    public String getName() {
+    public @NotNull String getName() {
         return this.name;
     }
 
@@ -63,7 +65,7 @@ public class CommandContext {
      * @param args the args in a String form.
      * @return
      */
-    public static Object[] preFormatArguments(ArgCommand command, String[] args) {
+    public static Object[] preFormatArguments(@NotNull ArgCommand command, @NotNull String[] args) {
         Object[] arguments = new Object[args.length];
 
         int index = 0;
