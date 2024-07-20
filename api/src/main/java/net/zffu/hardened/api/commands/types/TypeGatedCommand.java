@@ -2,7 +2,7 @@ package net.zffu.hardened.api.commands.types;
 
 import net.zffu.hardened.api.invoker.InvokerType;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * A {@link net.zffu.hardened.api.commands.Command} that can onlu run with specific {@link net.zffu.hardened.api.invoker.InvokerType}.
@@ -14,6 +14,6 @@ public interface TypeGatedCommand {
      * Gets the list of the {@link InvokerType} that are allowed to run the command.
      * @return {@link InvokerType}.
      */
-    Collection<InvokerType> getAllowedInvokers();
+    List<InvokerType> getAllowedInvokers();
 
 }
