@@ -3,6 +3,7 @@ package net.zffu.hardened.api.args;
 import net.zffu.hardened.api.args.impl.LengthArgument;
 import net.zffu.hardened.api.args.impl.RangedArgument;
 import net.zffu.hardened.api.args.types.DoubleArgument;
+import net.zffu.hardened.api.args.types.FloatArgument;
 import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
 import sun.security.util.Length;
@@ -16,6 +17,7 @@ public class Arguments {
 
     private static final IntegerArgument INT = new IntegerArgument();
     private static final DoubleArgument DOUBLE = new DoubleArgument();
+    private static final FloatArgument FLOAT = new FloatArgument();
     private static final StringArgument STRING = new StringArgument();
 
 
@@ -31,9 +33,18 @@ public class Arguments {
      * Gets a simple double argument.
      * @return
      */
-    public static RangedArgument Double() {
+    public static RangedArgument double_() {
         return new RangedArgument(DOUBLE);
     }
+
+    /**
+     * Gets a simple float argument.
+     * @return
+     */
+    public static RangedArgument float_() {
+        return new RangedArgument(FLOAT);
+    }
+
 
     /**
      * Gets a simple string argument.
