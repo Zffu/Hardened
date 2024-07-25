@@ -1,5 +1,6 @@
 package net.zffu.hardened.api.commands.builder;
 
+import net.zffu.hardened.api.commands.CommandExecution;
 import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
 import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
 import net.zffu.hardened.api.commands.validator.nodes.impl.DisabledNode;
@@ -63,6 +64,16 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder disabled(boolean disabled) {
         return this.node(new DisabledNode(disabled));
+    }
+
+    /**
+     * Sets the command's execution logic.
+     * @param execution the logic as a {@link CommandExecution}
+     * @return
+     */
+    public CommandBuilder execute(CommandExecution execution) {
+        this.execution = execution;
+        return this;
     }
 
 }
