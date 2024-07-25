@@ -2,11 +2,10 @@ package net.zffu.hardened.api.args;
 
 import net.zffu.hardened.api.args.impl.LengthArgument;
 import net.zffu.hardened.api.args.impl.RangedArgument;
-import net.zffu.hardened.api.args.types.DoubleArgument;
-import net.zffu.hardened.api.args.types.FloatArgument;
-import net.zffu.hardened.api.args.types.IntegerArgument;
-import net.zffu.hardened.api.args.types.StringArgument;
+import net.zffu.hardened.api.args.types.*;
 import sun.security.util.Length;
+
+import java.util.Arrays;
 
 /**
  * Useful class to generate {@link Argument} instances faster.
@@ -43,6 +42,14 @@ public class Arguments {
      */
     public static RangedArgument float_() {
         return new RangedArgument(FLOAT);
+    }
+
+    /**
+     * Gets a simple list argument.
+     * @return
+     */
+    public static Argument list(String... choices) {
+        return new Argument(new ListArgument(Arrays.asList(choices)));
     }
 
 
