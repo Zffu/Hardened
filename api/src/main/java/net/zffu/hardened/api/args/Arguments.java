@@ -10,16 +10,12 @@ import net.zffu.hardened.api.args.types.StringArgument;
  */
 public class Arguments {
 
-    // Default Argument Instances for caching.
-    private static IntegerArgument DEFAULT_INT = new IntegerArgument();
-    private static StringArgument DEFAULT_STRING = new StringArgument();
-
     /**
      * Gets a simple integer argument.
      * @return
      */
     public static IntegerArgument integer() {
-        return DEFAULT_INT;
+        return new IntegerArgument();
     }
 
     /**
@@ -27,6 +23,6 @@ public class Arguments {
      * @return
      */
     public static StringArgument string() {
-        return DEFAULT_STRING;
+        return new StringArgument();
     }
 }
