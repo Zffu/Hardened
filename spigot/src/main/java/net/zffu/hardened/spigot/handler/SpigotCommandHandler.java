@@ -22,7 +22,7 @@ public class SpigotCommandHandler implements CommandExecutor {
 
     public SpigotCommandHandler(net.zffu.hardened.api.commands.Command<?> command) {
         this.command = command;
-        this.parseArgs = !this.command.getArguments().isEmpty();
+        this.parseArgs = !this.command.getArguments().getArguments().isEmpty();
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

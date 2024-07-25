@@ -19,7 +19,7 @@ public class SpigotCommand extends Command {
         super(command.getPrimaryName());
         this.command = command;
         if(this.command.getAliases() != null && this.command.getAliases().length > 0) this.setAliases(Arrays.asList(this.command.getAliases()));
-        this.parseArgs = !this.command.getArguments().isEmpty();
+        this.parseArgs = !this.command.getArguments().getArguments().isEmpty();
     }
 
     @Override
