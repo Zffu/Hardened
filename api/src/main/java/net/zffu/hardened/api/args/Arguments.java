@@ -4,6 +4,7 @@ import net.zffu.hardened.api.args.impl.LengthArgument;
 import net.zffu.hardened.api.args.impl.RangedArgument;
 import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
+import sun.security.util.Length;
 
 /**
  * Useful class to generate {@link Argument} instances faster.
@@ -20,7 +21,7 @@ public class Arguments {
      * Gets a simple integer argument.
      * @return
      */
-    public static Argument integer() {
+    public static RangedArgument integer() {
         return new RangedArgument(INT);
     }
 
@@ -28,7 +29,7 @@ public class Arguments {
      * Gets a simple string argument.
      * @return
      */
-    public static Argument string() {
+    public static LengthArgument string() {
         return new LengthArgument(STRING);
     }
 }
