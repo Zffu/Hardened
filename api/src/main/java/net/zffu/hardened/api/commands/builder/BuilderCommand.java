@@ -9,9 +9,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class BuilderCommand implements Command {
 
-    private String primaryName;
-    private String[] aliases;
-    private NodeCommandValidator<BuilderCommand> validator;
+    protected String primaryName;
+    protected String[] aliases;
+    protected NodeCommandValidator<BuilderCommand> validator;
 
     @Override
     public @NotNull String getPrimaryName() {
