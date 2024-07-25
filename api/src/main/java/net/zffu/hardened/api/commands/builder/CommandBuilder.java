@@ -3,6 +3,8 @@ package net.zffu.hardened.api.commands.builder;
 import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
 import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
 import net.zffu.hardened.api.commands.validator.nodes.impl.PermissionNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.TypeGatedNode;
+import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
  * <p>Simple way to create commands in Hardened.</p>
@@ -42,6 +44,15 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder permission(String permission) {
         return this.node(new PermissionNode(permission));
+    }
+
+    /**
+     * Adds types that the {@link net.zffu.hardened.api.invoker.CommandInvoker} must be in order to run the command.
+     * @param types an {@link InvokerType} array.
+     * @return
+     */
+    public CommandBuilder type(InvokerType... types) {
+        return this.node(new TypeGatedNode(types));
     }
 
 }
