@@ -91,6 +91,16 @@ public class CommandBuilder {
     }
 
     /**
+     * Adds an optional {@link Argument} inside the command.
+     * @param type the arg type
+     * @return
+     */
+    public CommandBuilder optionalArg(ArgumentTypes type) {
+        this.command.arguments.add(new Argument(type.get()).optional(true));
+        return this;
+    }
+
+    /**
      * Sets the command's execution logic.
      * @param execution the logic as a {@link CommandExecution}
      * @return
