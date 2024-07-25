@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands;
 
 import net.zffu.hardened.api.args.Argument;
+import net.zffu.hardened.api.args.tree.ArgumentTree;
 import net.zffu.hardened.api.commands.validator.CommandValidator;
 import net.zffu.hardened.api.context.CommandContext;
 import org.jetbrains.annotations.NotNull;
@@ -34,7 +35,7 @@ public interface Command<T extends CommandValidator> extends CommandExecution {
      * <p><b>Note:</b> No checks for required arguments are done by default, you should use a validator node for that.</p>
      * @return the command arguments as an {@link Argument[]}
      */
-    @NotNull List<Argument> getArguments();
+    @NotNull ArgumentTree getArguments();
 
     /**
      * <p>Gets the command validator. The command validator is used to validate that a specific context can run the command.</p>
