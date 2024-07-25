@@ -11,9 +11,18 @@ import org.jetbrains.annotations.NotNull;
  */
 public class NodeCommandValidator<T extends Command> implements CommandValidator<T> {
 
+    private ValidatorNode<T>[] nodes;
+
+    public NodeCommandValidator(ValidatorNode<T>... nodes) {
+        this.nodes = nodes;
+    }
+
     @Override
-    public boolean validate(@NotNull Command command, @NotNull CommandContext context) {
-        return false;
+    public boolean validate(@NotNull T command, @NotNull CommandContext context) {
+        for(ValidatorNode<T> node : this.nodes) {
+            if(!node.validate(command, context)) return false;
+        }
+        return true;
     }
 
 }
