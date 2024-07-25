@@ -2,6 +2,7 @@ package net.zffu.hardened.api.args;
 
 import net.zffu.hardened.api.args.impl.LengthArgument;
 import net.zffu.hardened.api.args.impl.RangedArgument;
+import net.zffu.hardened.api.args.types.DoubleArgument;
 import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
 import sun.security.util.Length;
@@ -14,6 +15,7 @@ import sun.security.util.Length;
 public class Arguments {
 
     private static final IntegerArgument INT = new IntegerArgument();
+    private static final DoubleArgument DOUBLE = new DoubleArgument();
     private static final StringArgument STRING = new StringArgument();
 
 
@@ -23,6 +25,14 @@ public class Arguments {
      */
     public static RangedArgument integer() {
         return new RangedArgument(INT);
+    }
+
+    /**
+     * Gets a simple double argument.
+     * @return
+     */
+    public static RangedArgument Double() {
+        return new RangedArgument(DOUBLE);
     }
 
     /**
