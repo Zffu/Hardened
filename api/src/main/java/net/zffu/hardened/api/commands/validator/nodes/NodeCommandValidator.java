@@ -7,8 +7,9 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * A {@link CommandValidator} that uses the node command validation approach.
+ * @since 1.0.0
  */
-public class NodeCommandValidator implements CommandValidator<Command> {
+public class NodeCommandValidator<T extends Command> implements CommandValidator<T> {
 
     @Override
     public boolean validate(@NotNull Command command, @NotNull CommandContext context) {
