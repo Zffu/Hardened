@@ -25,6 +25,10 @@ public class NodeCommandValidator<T extends Command> implements CommandValidator
         this.nodes = new ArrayList<>();
     }
 
+    public List<ValidatorNode<T>> getNodes() {
+        return this.nodes;
+    }
+
     @Override
     public boolean validate(@NotNull T command, @NotNull CommandContext context) {
         for(ValidatorNode<T> node : this.nodes) {
