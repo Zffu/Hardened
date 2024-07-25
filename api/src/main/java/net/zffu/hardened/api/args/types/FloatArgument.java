@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * <p>A double {@link ArgumentType}.</p>
+ * <p>A float {@link ArgumentType}.</p>
  * @since 1.0.0
  */
 public class FloatArgument implements ArgumentType<Float> {
