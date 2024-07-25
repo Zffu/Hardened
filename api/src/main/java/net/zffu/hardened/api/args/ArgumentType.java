@@ -19,6 +19,13 @@ public interface ArgumentType<T> {
      */
     @Nullable T fromString(@NotNull String s);
 
+    /**
+     * Can the raw string be parsed into that {@link ArgumentType}.
+     * @param s the raw string.
+     * @return true or false.
+     */
+    boolean canParse(@NotNull String s);
+
 }
 
 
