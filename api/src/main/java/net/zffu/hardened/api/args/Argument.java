@@ -44,4 +44,13 @@ public class Argument {
     public boolean isOptional() {
         return this.optional;
     }
+
+    /**
+     * Can parse the raw string.
+     * @param rawString
+     * @return
+     */
+    public boolean canParse(String rawString) {
+        return this.type.canParse(rawString);
+    }
 }
