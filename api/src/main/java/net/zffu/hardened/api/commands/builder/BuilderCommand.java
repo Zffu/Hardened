@@ -1,6 +1,6 @@
 package net.zffu.hardened.api.commands.builder;
 
-import net.zffu.hardened.api.args.Argument;
+import net.zffu.hardened.api.args.tree.ArgumentTree;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.CommandExecution;
 import net.zffu.hardened.api.commands.validator.CommandValidator;
@@ -9,8 +9,6 @@ import net.zffu.hardened.api.context.CommandContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class BuilderCommand implements Command {
 
@@ -18,7 +16,7 @@ public class BuilderCommand implements Command {
     protected String[] aliases;
     protected NodeCommandValidator validator = new NodeCommandValidator();
     protected CommandExecution execution;
-    protected List<Argument> arguments = new ArrayList<>();
+    protected ArgumentTree arguments = new ArgumentTree();
 
     public BuilderCommand(String primaryName) {
         this.primaryName = primaryName;
@@ -35,7 +33,7 @@ public class BuilderCommand implements Command {
     }
 
     @Override
-    public @NotNull List<Argument> getArguments() {
+    public @NotNull ArgumentTree getArguments() {
         return this.arguments;
     }
 
