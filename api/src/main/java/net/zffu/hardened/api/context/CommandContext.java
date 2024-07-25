@@ -84,6 +84,12 @@ public class CommandContext {
         int index = 0;
 
         for(Argument argument : command.getArguments().getArguments()) {
+
+            if(!argument.canParse(args[index])) {
+                if(argument.isOptional()) continue;
+                else return null;
+            }
+
             Object o = argument.getType().fromString(args[index]);
 
             if(o != null) arguments[index] = o;
