@@ -1,6 +1,7 @@
 package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.args.Argument;
+import net.zffu.hardened.api.args.ArgumentTypes;
 import net.zffu.hardened.api.commands.CommandExecution;
 import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
 import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
@@ -76,6 +77,16 @@ public class CommandBuilder {
      */
     public CommandBuilder argument(Argument argument) {
         this.command.arguments.add(argument);
+        return this;
+    }
+
+    /**
+     * Adds an {@link Argument} inside the command.
+     * @param type the arg type
+     * @return
+     */
+    public CommandBuilder argument(ArgumentTypes type) {
+        this.command.arguments.add(new Argument(type.get()));
         return this;
     }
 
