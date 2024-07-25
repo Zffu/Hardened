@@ -1,5 +1,6 @@
 package net.zffu.hardened.api.args;
 
+import com.sun.org.apache.xpath.internal.Arg;
 import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
 
@@ -10,19 +11,23 @@ import net.zffu.hardened.api.args.types.StringArgument;
  */
 public class Arguments {
 
+    private static final IntegerArgument INT = new IntegerArgument();
+    private static final StringArgument STRING = new StringArgument();
+
+
     /**
      * Gets a simple integer argument.
      * @return
      */
-    public static IntegerArgument integer() {
-        return new IntegerArgument();
+    public static Argument integer() {
+        return new Argument(INT);
     }
 
     /**
      * Gets a simple string argument.
      * @return
      */
-    public static StringArgument string() {
-        return new StringArgument();
+    public static Argument string() {
+        return new Argument(STRING);
     }
 }

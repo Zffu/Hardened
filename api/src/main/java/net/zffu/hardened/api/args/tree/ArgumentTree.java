@@ -45,4 +45,8 @@ public class ArgumentTree {
         return this.arguments.size() - this.optional;
     }
 
+    public List<Argument> getArguments() {
+        return this.arguments;
+    }
+
 }
