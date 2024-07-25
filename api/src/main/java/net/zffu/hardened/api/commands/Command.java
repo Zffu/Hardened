@@ -7,6 +7,8 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 /**
  * <p>The base of every command registered trough the Hardened API. Any command that uses this API should implement this.</p>
  * <p>An interface that stores basic command metadata, the {@link CommandValidator} and the execution function.</p>
@@ -33,7 +35,7 @@ public interface Command<T extends CommandValidator> extends CommandExecution {
      * <p><b>Note:</b> No checks for required arguments are done by default, you should use a validator node for that.</p>
      * @return the command arguments as an {@link Argument[]}
      */
-    @NotNull Argument[] getArguments();
+    @NotNull List<Argument> getArguments();
 
     /**
      * <p>Gets the command validator. The command validator is used to validate that a specific context can run the command.</p>
