@@ -1,5 +1,7 @@
 package net.zffu.hardened.api.args;
 
+import net.zffu.hardened.api.args.impl.LengthArgument;
+import net.zffu.hardened.api.args.impl.RangedArgument;
 import net.zffu.hardened.api.args.types.IntegerArgument;
 import net.zffu.hardened.api.args.types.StringArgument;
 
@@ -19,7 +21,7 @@ public class Arguments {
      * @return
      */
     public static Argument integer() {
-        return new Argument(INT);
+        return new RangedArgument(INT);
     }
 
     /**
@@ -27,6 +29,6 @@ public class Arguments {
      * @return
      */
     public static Argument string() {
-        return new Argument(STRING);
+        return new LengthArgument(STRING);
     }
 }
