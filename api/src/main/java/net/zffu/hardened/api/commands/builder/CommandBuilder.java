@@ -1,97 +1,89 @@
 package net.zffu.hardened.api.commands.builder;
 
-import net.zffu.hardened.api.args.Argument;
-import net.zffu.hardened.api.commands.Command;
-import net.zffu.hardened.api.context.CommandContext;
+import net.zffu.hardened.api.commands.CommandExecution;
+import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
+import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.DisabledNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.PermissionNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.TypeGatedNode;
 import net.zffu.hardened.api.invoker.InvokerType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
 /**
- * <p>Variant of the {@link net.zffu.hardened.api.commands.Command} interface.</p>
- * <p>This variant isn't the default one as it implements every single feature that commands can have in the Hardened for the builder.</p>
- * <p>This means that this can be used only if you do not mind the extra memory usage that will come from the empty variable fields from the unused interfaces.</p>
+ * <p>Simple way to create commands in Hardened.</p>
  * @since 1.0.0
- * @see {@link Command}
+ * @see {@link net.zffu.hardened.api.commands.Command}
  */
-public class CommandBuilder extends BuilderCommand {
+public class CommandBuilder {
 
-    private Consumer<CommandContext> executeFunction;
+    private BuilderCommand command;
 
-    /**
-     * Constructs a new {@link CommandBuilder}.
-     * @param primaryName the command name.
-     */
     public CommandBuilder(String primaryName) {
-        this.primaryName = primaryName;
+        this.command = new BuilderCommand(primaryName);
     }
 
     /**
-     * Constructs a new {@link CommandBuilder}.
-     * @param primaryName the command name.
-     * @param aliases the aliases.
-     */
-    public CommandBuilder(String primaryName, String... aliases) {
-        this.primaryName = primaryName;
-        this.aliases = aliases;
-    }
-
-    /**
-     * Sets the {@link InvokerType} that are allowed to run the command.
-     * @param types
+     * Sets the aliases of the command.
+     * @param aliases
      * @return
      */
-    public CommandBuilder allowed(InvokerType... types) {
-        this.allowedTypes = Arrays.asList(types);
+    public CommandBuilder aliases(String... aliases) {
+        this.command.aliases = aliases;
         return this;
     }
 
     /**
-     * Sets the {@link Argument} of the command.
-     * @param args the args.
+     * Adds a {@link ValidatorNode} into the builder's {@link NodeCommandValidator}.
+     * @param node the {@link ValidatorNode} to add.
      * @return
      */
-    public CommandBuilder args(Argument... args) {
-        this.arguments = args;
+    public CommandBuilder node(ValidatorNode node) {
+        this.command.validator.getNodes().add(node);
         return this;
     }
 
     /**
-     * Sets the executeFunction of the command.
-     * @param func
-     * @return
-     */
-    public CommandBuilder runAction(Consumer<CommandContext> func) {
-        this.executeFunction = func;
-        return this;
-    }
-
-    /**
-     * Gets the permission required to run the command.
+     * Adds a permission that is required to have before running the command.
      * @param permission the permission.
      * @return
      */
     public CommandBuilder permission(String permission) {
-        this.permission = permission;
+        return this.node(new PermissionNode(permission));
+    }
+
+    /**
+     * Adds types that the {@link net.zffu.hardened.api.invoker.CommandInvoker} must be in order to run the command.
+     * @param types an {@link InvokerType} array.
+     * @return
+     */
+    public CommandBuilder type(InvokerType... types) {
+        return this.node(new TypeGatedNode(types));
+    }
+
+    /**
+     * Adds a node that is disabled or not.
+     * @param disabled
+     * @return
+     */
+    public CommandBuilder disabled(boolean disabled) {
+        return this.node(new DisabledNode(disabled));
+    }
+
+    /**
+     * Sets the command's execution logic.
+     * @param execution the logic as a {@link CommandExecution}
+     * @return
+     */
+    public CommandBuilder execute(CommandExecution execution) {
+        this.command.execution = execution;
         return this;
     }
 
     /**
-     * Should the command be disabled or not.
-     * @param isDisabled
-     * @return
+     * Builds out the {@link net.zffu.hardened.api.commands.Command}.
+     * @return the built command as a {@link BuilderCommand}
      */
-    public CommandBuilder disabled(boolean isDisabled) {
-        this.disabled = isDisabled;
-        return this;
+    public BuilderCommand build() {
+        return this.command;
     }
 
-    @Override
-    public void execute(CommandContext commandContext) {
-        if(executeFunction != null) executeFunction.accept(commandContext);
-    }
 }

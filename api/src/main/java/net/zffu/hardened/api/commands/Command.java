@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
  * @param <T> the class of the {@link CommandValidator} for that command.
  * @since 1.0.0
  */
-public interface Command<T extends CommandValidator> {
+public interface Command<T extends CommandValidator> extends CommandExecution {
 
     /**
      * <p>Gets the primary name of the command.</p>
@@ -32,13 +32,6 @@ public interface Command<T extends CommandValidator> {
      * @return the {@link CommandValidator}
      */
     @Nullable T getValidator();
-
-    /**
-     * <p>Triggers the command logic based on the provided context without doing any validation beforehand.</p>
-     * <p><b>Note: </b>The run function should be used as it has validator checks.</p>
-     * @param commandContext the {@link CommandContext} provided to the logic.
-     */
-    void execute(@NotNull CommandContext commandContext);
 
     /**
      * <p>Performs validator checks and executes the command logic using the provided context if the validator allows the context to run the command.</p>

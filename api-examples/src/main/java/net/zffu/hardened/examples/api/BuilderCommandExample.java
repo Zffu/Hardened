@@ -2,9 +2,8 @@ package net.zffu.hardened.examples.api;
 
 import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.args.ArgumentTypes;
+import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.builder.CommandBuilder;
-import net.zffu.hardened.api.context.CommandContext;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 
 /**
@@ -13,14 +12,11 @@ import net.zffu.hardened.api.invoker.InvokerType;
 public class BuilderCommandExample {
 
     public static void main(String[] args) {
-
-        // Creates the base of the command builder
-        CommandBuilder commandBuilder = new CommandBuilder("test").runAction((ctx) -> {
-            System.out.println("Hello " + ctx.getInvoker().getType().name());
-        })
-        // Adds properties to the CommandBuilder.
-        .allowed(InvokerType.PLAYER) // Makes sure only players can run this command
-        .args(new Argument(ArgumentTypes.STRING.get())); // Adds a string argument
+        Command command = new CommandBuilder("test") // Creates a command with the primary name test
+                .type(InvokerType.PLAYER) // Only allows players to run the command
+                .permission("test.permission") // Makes the player need the permission "test.permission" in order to run the command.
+                .execute((ctx) -> System.out.println("Hello " + ctx.getInvoker().getType())) // Sets the command actions
+                .build(); // Builds out the command
     }
 
 }

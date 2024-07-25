@@ -2,7 +2,6 @@ package net.zffu.hardened.api.invoker;
 
 import org.jetbrains.annotations.NotNull;
 import net.zffu.hardened.api.context.CommandContext;
-import net.zffu.hardened.api.commands.types.PermissionCommand;
 
 /**
  * <p>An invoker is something that is at the origin of a command execution.</p>
@@ -19,7 +18,6 @@ public interface CommandInvoker {
 
     /**
      * <p>Determines if the {@link CommandInvoker} has the provided permission.</p>
-     * <p>Used in {@link PermissionCommand} for example.</p>
      * @param permission the permission id.
      * @return true or false.
      */
