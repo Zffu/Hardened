@@ -13,11 +13,11 @@ import java.util.List;
  * A {@link CommandValidator} that uses the node command validation approach.
  * @since 1.0.0
  */
-public class NodeCommandValidator<T extends Command> implements CommandValidator<T> {
+public class NodeCommandValidator implements CommandValidator<Command<?>> {
 
-    private List<ValidatorNode<T>> nodes;
+    private List<ValidatorNode> nodes;
 
-    public NodeCommandValidator(ValidatorNode<T>... nodes) {
+    public NodeCommandValidator(ValidatorNode... nodes) {
         this.nodes = Arrays.asList(nodes);
     }
 
@@ -25,13 +25,13 @@ public class NodeCommandValidator<T extends Command> implements CommandValidator
         this.nodes = new ArrayList<>();
     }
 
-    public List<ValidatorNode<T>> getNodes() {
+    public List<ValidatorNode> getNodes() {
         return this.nodes;
     }
 
     @Override
-    public boolean validate(@NotNull T command, @NotNull CommandContext context) {
-        for(ValidatorNode<T> node : this.nodes) {
+    public boolean validate(@NotNull Command<?> command, @NotNull CommandContext context) {
+        for(ValidatorNode node : this.nodes) {
             if(!node.validate(command, context)) return false;
         }
         return true;
