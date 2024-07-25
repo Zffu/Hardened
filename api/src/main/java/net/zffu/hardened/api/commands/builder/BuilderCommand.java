@@ -11,7 +11,7 @@ public class BuilderCommand implements Command {
 
     protected String primaryName;
     protected String[] aliases;
-    protected NodeCommandValidator<BuilderCommand> validator;
+    protected NodeCommandValidator<BuilderCommand> validator = new NodeCommandValidator<>();
 
     @Override
     public @NotNull String getPrimaryName() {
