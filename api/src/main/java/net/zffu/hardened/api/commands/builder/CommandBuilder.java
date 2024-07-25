@@ -1,5 +1,8 @@
 package net.zffu.hardened.api.commands.builder;
 
+import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
+import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
+
 /**
  * <p>Simple way to create commands in Hardened.</p>
  * @since 1.0.0
@@ -18,6 +21,16 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder aliases(String... aliases) {
         this.aliases = aliases;
+        return this;
+    }
+
+    /**
+     * Adds a {@link ValidatorNode} into the builder's {@link NodeCommandValidator}.
+     * @param node the {@link ValidatorNode} to add.
+     * @return
+     */
+    public CommandBuilder node(ValidatorNode<BuilderCommand> node) {
+        this.validator.getNodes().add(node);
         return this;
     }
 
