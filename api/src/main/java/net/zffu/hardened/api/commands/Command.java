@@ -1,5 +1,6 @@
 package net.zffu.hardened.api.commands;
 
+import net.zffu.hardened.api.args.Argument;
 import net.zffu.hardened.api.commands.validator.CommandValidator;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
@@ -26,6 +27,13 @@ public interface Command<T extends CommandValidator> extends CommandExecution {
      * @return the aliases of the command as a {@link String[]}
      */
     @NotNull String[] getAliases();
+
+    /**
+     * <p>Gets the arguments that the command contains. Used in argument parsing</p>
+     * <p><b>Note:</b> No checks for required arguments are done by default, you should use a validator node for that.</p>
+     * @return the command arguments as an {@link Argument[]}
+     */
+    @NotNull Argument[] getArguments();
 
     /**
      * <p>Gets the command validator. The command validator is used to validate that a specific context can run the command.</p>
