@@ -9,6 +9,7 @@ import net.zffu.hardened.api.context.CommandContext;
  * @since 1.0.0
  * @see {@link NodeCommandValidator}
  */
+@FunctionalInterface
 public interface ValidatorNode<T extends Command> {
 
     /**
