@@ -41,8 +41,7 @@ public class CommandBuilder extends BuilderCommand {
      * @return
      */
     public CommandBuilder permission(String permission) {
-        this.node(new PermissionNode(permission));
-        return this;
+        return this.node(new PermissionNode(permission));
     }
 
 }
