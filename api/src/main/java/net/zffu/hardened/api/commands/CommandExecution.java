@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
  * @since 1.0.0
  * @see {@link Command}
  */
+@FunctionalInterface
 public interface CommandExecution {
 
     /**
