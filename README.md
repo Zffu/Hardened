@@ -37,8 +37,6 @@ builder.aliases("myTestCommand", "test2");
 This will add the aliases "myTestCommand" and "test2" to the builder created.
 
 #### Add Validator Nodes
-
-[!NOTE]
 You can have multiple validators of the same time (for example multiple permission nodes).
 
 The builder directly allows you to add validation nodes into your command.
@@ -80,8 +78,7 @@ public class MyPlugin extends JavaPlugin {
 }
 ```
 
-[!WARNING]
-Some features such as aliases are not supported by every `CommandRegistrar`
+**WARN:** Some features such as aliases are not supported by every `CommandRegistrar`
 
 Once you have your registrar, you can simply register a command like this:
 ```java
