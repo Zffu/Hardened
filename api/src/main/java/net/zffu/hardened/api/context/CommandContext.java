@@ -57,6 +57,14 @@ public class CommandContext {
     }
 
     /**
+     * Gets the length of args.
+     * @return
+     */
+    public int getArgsLength() {
+        return this.args.length;
+    }
+
+    /**
      * <p>Gets the name label of the command used.</p>
      * @return the command label.
      */
