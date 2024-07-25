@@ -2,6 +2,7 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
 import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.DisabledNode;
 import net.zffu.hardened.api.commands.validator.nodes.impl.PermissionNode;
 import net.zffu.hardened.api.commands.validator.nodes.impl.TypeGatedNode;
 import net.zffu.hardened.api.invoker.InvokerType;
@@ -53,6 +54,15 @@ public class CommandBuilder extends BuilderCommand {
      */
     public CommandBuilder type(InvokerType... types) {
         return this.node(new TypeGatedNode(types));
+    }
+
+    /**
+     * Adds a node that is disabled or not.
+     * @param disabled
+     * @return
+     */
+    public CommandBuilder disabled(boolean disabled) {
+        return this.node(new DisabledNode(disabled));
     }
 
 }
