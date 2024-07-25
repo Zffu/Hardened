@@ -13,10 +13,12 @@ import net.zffu.hardened.api.invoker.InvokerType;
  * @since 1.0.0
  * @see {@link net.zffu.hardened.api.commands.Command}
  */
-public class CommandBuilder extends BuilderCommand {
+public class CommandBuilder {
+
+    private BuilderCommand command;
 
     public CommandBuilder(String primaryName) {
-        this.primaryName = primaryName;
+        this.command = new BuilderCommand(primaryName);
     }
 
     /**
@@ -25,7 +27,7 @@ public class CommandBuilder extends BuilderCommand {
      * @return
      */
     public CommandBuilder aliases(String... aliases) {
-        this.aliases = aliases;
+        this.command.aliases = aliases;
         return this;
     }
 
@@ -35,7 +37,7 @@ public class CommandBuilder extends BuilderCommand {
      * @return
      */
     public CommandBuilder node(ValidatorNode node) {
-        this.validator.getNodes().add(node);
+        this.command.validator.getNodes().add(node);
         return this;
     }
 
@@ -72,8 +74,16 @@ public class CommandBuilder extends BuilderCommand {
      * @return
      */
     public CommandBuilder execute(CommandExecution execution) {
-        this.execution = execution;
+        this.command.execution = execution;
         return this;
+    }
+
+    /**
+     * Builds out the {@link net.zffu.hardened.api.commands.Command}.
+     * @return the built command as a {@link BuilderCommand}
+     */
+    public BuilderCommand build() {
+        return this.command;
     }
 
 }
