@@ -74,7 +74,7 @@ public class CommandBuilder {
      * @param argument
      * @return
      */
-    public CommandBuilder arg(Argument argument) {
+    public CommandBuilder argument(Argument argument) {
         this.command.arguments.add(argument);
         return this;
     }
