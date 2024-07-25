@@ -1,7 +1,5 @@
 package net.zffu.hardened.examples.api;
 
-import net.zffu.hardened.api.args.Argument;
-import net.zffu.hardened.api.args.ArgumentTypes;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.commands.builder.CommandBuilder;
 import net.zffu.hardened.api.invoker.InvokerType;

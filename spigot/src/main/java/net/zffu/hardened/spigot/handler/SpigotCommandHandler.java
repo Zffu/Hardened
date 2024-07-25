@@ -1,6 +1,5 @@
 package net.zffu.hardened.spigot.handler;
 
-import net.zffu.hardened.api.commands.types.ArgCommand;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.spigot.invokers.ConsoleInvoker;
@@ -23,11 +22,11 @@ public class SpigotCommandHandler implements CommandExecutor {
 
     public SpigotCommandHandler(net.zffu.hardened.api.commands.Command<?> command) {
         this.command = command;
-        this.parseArgs = this.command instanceof ArgCommand;
+        this.parseArgs = !this.command.getArguments().isEmpty();
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        CommandContext context = new CommandContext(fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments((ArgCommand) this.command, args) : null), label);
+        CommandContext context = new CommandContext(fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments(this.command, args) : null), label);
         this.command.run(context);
         return true;
     }

@@ -1,6 +1,5 @@
 package net.zffu.hardened.spigot.handler;
 
-import net.zffu.hardened.api.commands.types.ArgCommand;
 import net.zffu.hardened.api.context.CommandContext;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -20,12 +19,12 @@ public class SpigotCommand extends Command {
         super(command.getPrimaryName());
         this.command = command;
         if(this.command.getAliases() != null && this.command.getAliases().length > 0) this.setAliases(Arrays.asList(this.command.getAliases()));
-        this.parseArgs = this.command instanceof ArgCommand;
+        this.parseArgs = !this.command.getArguments().isEmpty();
     }
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        CommandContext context = new CommandContext(SpigotCommandHandler.fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments((ArgCommand) this.command, args) : null), commandLabel);
+        CommandContext context = new CommandContext(SpigotCommandHandler.fromCommandSender(sender), (this.parseArgs ? CommandContext.preFormatArguments(this.command, args) : null), commandLabel);
         this.command.run(context);
         return true;
     }

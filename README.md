@@ -46,12 +46,27 @@ For example, you could make your command require the invoker to be a player and 
 builder.type(InvokerType.PLAYER).permission("test.permission");
 ```
 
+#### Adding Arguments
+In order to add arguments to your command you can use the `Arguments` class to generate the arguments.
+
+For example lets make a string argument.
+```java
+builder.argument(Arguments.string());
+```
+
+To make the argument optional simply do that instead:
+```java
+builder.argument(Arguments.string().optional(true));
+```
+
+**INFO:** Arguments are required by default.
+
 #### Make the command do something
 In order to make the command do something, you can use the `execute` builder function.
 
-In this example, we make the command send "hello" to the player who executed the command (for Spigot):
+In this example, we make the command send "hello (argument 1)" to the player who executed the command (for Spigot):
 ```java
-builder.execute((ctx) -> (((PlayerInvoker)ctx.getInvoker()).getPlayer()).sendMessage("Hello"))
+builder.execute((ctx) -> (((PlayerInvoker)ctx.getInvoker()).getPlayer()).sendMessage("Hello " + ctx.get(0, String.class)))
 ```
 
 #### Building the command
