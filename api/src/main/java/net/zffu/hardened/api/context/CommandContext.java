@@ -57,6 +57,14 @@ public class CommandContext {
     }
 
     /**
+     * Gets the length of args.
+     * @return
+     */
+    public int getArgsLength() {
+        return this.args.length;
+    }
+
+    /**
      * <p>Gets the name label of the command used.</p>
      * @return the command label.
      */
@@ -75,7 +83,7 @@ public class CommandContext {
 
         int index = 0;
 
-        for(Argument argument : command.getArguments()) {
+        for(Argument argument : command.getArguments().getArguments()) {
             if(argument.isOptional()) continue; //todo: add optional argument handling
             Object o = argument.getType().fromString(args[index]);
 
