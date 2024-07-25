@@ -1,8 +1,8 @@
 package net.zffu.hardened.api.context;
 
+import com.sun.org.apache.xpath.internal.Arg;
 import net.zffu.hardened.api.args.Argument;
-import net.zffu.hardened.api.args.ArgumentType;
-import net.zffu.hardened.api.commands.types.ArgCommand;
+import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,7 +41,7 @@ public class CommandContext {
     /**
      * <p>Locates the argument in the preformatted argument values pool and casts it to the according class.</p>
      * <p><b>Note: </b>This function automatically checks for casting</p>
-     * @param index the argument value's index to find it (also is the argument's index in the {@link ArgCommand})
+     * @param index the argument value's index to find it (also is the argument's index in the {@link Command})
      * @param clazz the {@link Class} of the output data type.
      * @param <T> the output data type.
      * @return the argument value casted to the provided type.
@@ -65,15 +65,16 @@ public class CommandContext {
     }
 
     /**
-     * <p>Preformats / parses the given raw {@link String} arguments and outputs the parsed arguments based on the registered arguments in the {@link ArgCommand}</p>
-     * @param command the {@link ArgCommand}. Used to get the argument types.
+     * <p>Preformats / parses the given raw {@link String} arguments and outputs the parsed arguments based on the registered arguments in the {@link Command}</p>
+     * @param command the {@link Command}. Used to get the argument types.
      * @param args the raw string argument array.
      * @return the parsed arguments as a {@link Object[]};
      */
-    public static Object[] preFormatArguments(@NotNull ArgCommand command, @NotNull String[] args) {
+    public static Object[] preFormatArguments(@NotNull Command<?> command, @NotNull String[] args) {
         Object[] arguments = new Object[args.length];
 
         int index = 0;
+
         for(Argument argument : command.getArguments()) {
             if(argument.isOptional()) continue; //todo: add optional argument handling
             Object o = argument.getType().fromString(args[index]);
