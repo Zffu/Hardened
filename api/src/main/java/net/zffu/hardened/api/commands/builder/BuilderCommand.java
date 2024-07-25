@@ -15,6 +15,10 @@ public class BuilderCommand implements Command {
     protected NodeCommandValidator validator = new NodeCommandValidator();
     protected CommandExecution execution;
 
+    public BuilderCommand(String primaryName) {
+        this.primaryName = primaryName;
+    }
+
     @Override
     public @NotNull String getPrimaryName() {
         return this.primaryName;
