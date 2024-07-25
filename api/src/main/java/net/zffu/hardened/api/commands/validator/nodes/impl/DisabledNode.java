@@ -8,7 +8,7 @@ import net.zffu.hardened.api.context.CommandContext;
  * A {@link ValidatorNode} that can be disabled or enabled. If disabled the command will not be executed!
  * @since 1.0.0
  */
-public class DisabledNode implements ValidatorNode<Command> {
+public class DisabledNode implements ValidatorNode {
 
     private boolean disabled;
 

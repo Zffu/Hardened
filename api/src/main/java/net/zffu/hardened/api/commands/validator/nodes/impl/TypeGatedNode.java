@@ -13,7 +13,7 @@ import java.util.List;
  * @since 1.0.0
  * @see {@link InvokerType}
  */
-public class TypeGatedNode implements ValidatorNode<Command> {
+public class TypeGatedNode implements ValidatorNode {
 
     private List<InvokerType> allowedTypes;
 

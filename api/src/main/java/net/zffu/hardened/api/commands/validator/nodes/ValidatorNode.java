@@ -10,7 +10,7 @@ import net.zffu.hardened.api.context.CommandContext;
  * @see {@link NodeCommandValidator}
  */
 @FunctionalInterface
-public interface ValidatorNode<T extends Command> {
+public interface ValidatorNode {
 
     /**
      * Validates the command for the validator node.
@@ -18,6 +18,6 @@ public interface ValidatorNode<T extends Command> {
      * @param ctx the {@link CommandContext}
      * @return true or false.
      */
-    boolean validate(T command, CommandContext ctx);
+    boolean validate(Command command, CommandContext ctx);
 
 }

@@ -8,7 +8,7 @@ import net.zffu.hardened.api.context.CommandContext;
  * A {@link ValidatorNode} that requires the Invoker to have a specific permission before running the command.
  * @since 1.0.0
  */
-public class PermissionNode implements ValidatorNode<Command> {
+public class PermissionNode implements ValidatorNode {
 
     private String permission;
 
