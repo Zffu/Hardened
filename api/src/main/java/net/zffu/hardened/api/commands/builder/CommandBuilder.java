@@ -2,6 +2,7 @@ package net.zffu.hardened.api.commands.builder;
 
 import net.zffu.hardened.api.commands.validator.nodes.NodeCommandValidator;
 import net.zffu.hardened.api.commands.validator.nodes.ValidatorNode;
+import net.zffu.hardened.api.commands.validator.nodes.impl.PermissionNode;
 
 /**
  * <p>Simple way to create commands in Hardened.</p>
@@ -29,8 +30,18 @@ public class CommandBuilder extends BuilderCommand {
      * @param node the {@link ValidatorNode} to add.
      * @return
      */
-    public CommandBuilder node(ValidatorNode<BuilderCommand> node) {
+    public CommandBuilder node(ValidatorNode node) {
         this.validator.getNodes().add(node);
+        return this;
+    }
+
+    /**
+     * Adds a permission that is required to have before running the command.
+     * @param permission the permission.
+     * @return
+     */
+    public CommandBuilder permission(String permission) {
+        this.node(new PermissionNode(permission));
         return this;
     }
 
