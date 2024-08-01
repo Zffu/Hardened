@@ -3,18 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.zffu</groupId>
+        <artifactId>hardened</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
-    <packaging>jar</packaging>
-
-    <groupId>net.zffu.hardened</groupId>
-    <artifactId>spigot</artifactId>
+    <groupId>net.zffu</groupId>
+    <artifactId>hardened-shared</artifactId>
     <version>1.0.0</version>
 
     <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
@@ -41,10 +43,6 @@
             <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>net.zffu</groupId>
-            <artifactId>hardened-shared</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
+
 </project>
