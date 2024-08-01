@@ -1,4 +1,4 @@
-package net.zffu.hardened.spigot.invokers;
+package net.zffu.hardened.shared.invokers;
 
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;

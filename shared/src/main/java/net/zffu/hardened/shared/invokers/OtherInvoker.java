@@ -1,30 +1,33 @@
-package net.zffu.hardened.spigot.invokers;
+package net.zffu.hardened.shared.invokers;
 
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 import org.bukkit.command.CommandSender;
 
 /**
- * A {@link CommandInvoker} that is also a {@link org.bukkit.command.ConsoleCommandSender}.
- * @since 1.0.0
+ * An {@link CommandInvoker} on which the type couldn't be determined.
  */
-public class ConsoleInvoker implements CommandInvoker {
+public class OtherInvoker implements CommandInvoker {
 
     private CommandSender sender;
 
-    public ConsoleInvoker(CommandSender sender) {
+    /**
+     * Constructs an new {@link OtherInvoker}.
+     * @param sender
+     */
+    public OtherInvoker(CommandSender sender) {
         this.sender = sender;
     }
 
     public InvokerType getType() {
-        return InvokerType.CONSOLE;
+        return InvokerType.OTHER;
     }
 
     public boolean hasPermission(String permission) {
         return this.sender.hasPermission(permission);
     }
 
-    public CommandSender getSender() {
+    public CommandSender getCommandSender() {
         return this.sender;
     }
 
