@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class SpigotCommandRegistrar implements CommandRegistrar {
 
-    protected SharedInvokerFactory factory;
+    public final SharedInvokerFactory factory;
     protected JavaPlugin plugin;
 
     /**
