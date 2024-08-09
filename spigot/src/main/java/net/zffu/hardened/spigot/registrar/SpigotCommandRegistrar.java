@@ -2,11 +2,9 @@ package net.zffu.hardened.spigot.registrar;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.registrar.CommandRegistrar;
+import net.zffu.hardened.shared.SharedInvokerFactory;
 import net.zffu.hardened.spigot.handler.SpigotCommandHandler;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Arrays;
 
 /**
  * A reflection-less {@link net.zffu.hardened.api.registrar.CommandRegistrar} for Spigot platforms.
@@ -15,6 +13,7 @@ import java.util.Arrays;
  */
 public class SpigotCommandRegistrar implements CommandRegistrar {
 
+    public final SharedInvokerFactory factory;
     protected JavaPlugin plugin;
 
     /**
@@ -23,9 +22,10 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
      */
     public SpigotCommandRegistrar(JavaPlugin plugin) {
         this.plugin = plugin;
+        this.factory = new SharedInvokerFactory();
     }
 
     public void register(Command<?> command) {
-        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command));
+        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command, this));
     }
 }
