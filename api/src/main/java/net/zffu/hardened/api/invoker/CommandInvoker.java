@@ -8,7 +8,7 @@ import net.zffu.hardened.api.context.CommandContext;
  * <p>The {@link CommandInvoker} will be provided by the {@link CommandContext} when a command gets executed.</p>
  * @since 1.0.0
  */
-public interface CommandInvoker {
+public interface CommandInvoker<S> {
 
     /**
      * <p>Gets the type of the {@link CommandInvoker}</p>
@@ -22,5 +22,11 @@ public interface CommandInvoker {
      * @return true or false.
      */
     boolean hasPermission(@NotNull String permission);
+
+    /**
+     * <p>Gets the "command sender" version of the invoker.</p>
+     * @return the "command sender" as S.
+     */
+    S getSender();
 
 }
