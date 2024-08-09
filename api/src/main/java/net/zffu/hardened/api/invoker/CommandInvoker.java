@@ -29,4 +29,10 @@ public interface CommandInvoker<S> {
      */
     S getSender();
 
+    /**
+     * <p>Sends a message to the invoker.</p>
+     * @param message the message as a {@link String}
+     */
+    void sendMessage(String message);
+
 }
