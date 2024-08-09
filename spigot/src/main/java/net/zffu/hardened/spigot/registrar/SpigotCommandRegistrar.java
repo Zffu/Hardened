@@ -26,6 +26,6 @@ public class SpigotCommandRegistrar implements CommandRegistrar {
     }
 
     public void register(Command<?> command) {
-        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command));
+        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command, this));
     }
 }
