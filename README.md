@@ -1,10 +1,31 @@
 # Hardened
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)  ![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fzffu.is-a.dev%2Fmaven%2Fnet%2Fzffu%2Fhardened-api%2Fmaven-properties.xml&label=hardened-api) ![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fzffu.is-a.dev%2Fmaven%2Fnet%2Fzffu%2Fhardened-spigot%2Fmaven-properties.xml&label=hardened-spigot)
 
 A Minecraft Command API that aims to support most platforms.
 
 ### Supported Platforms
 - Spigot
+
+## Installing
+In order to use Hardened, you will need to add it to your depencies.
+
+```xml
+<repositories>
+    <repository>
+        <id>zffu-repo</id>
+        <url>https://zffu.is-a.dev/maven</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>net.zffu</groupId>
+        <artifactId>hardened-api</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
+
+```
 
 ## Contributions
 
