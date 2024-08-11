@@ -12,6 +12,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class SharedInvokerFactory implements InvokerFactory<CommandInvoker<CommandSender>, CommandSender> {
 
+    public static final SharedInvokerFactory INSTANCE = new SharedInvokerFactory();
+
     @Override
     public CommandInvoker<CommandSender> createInvoker(CommandSender sender, InvokerType type) {
         return new CommandInvoker<CommandSender>() {
