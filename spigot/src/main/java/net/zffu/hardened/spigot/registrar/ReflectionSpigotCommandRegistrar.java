@@ -3,7 +3,6 @@ package net.zffu.hardened.spigot.registrar;
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.spigot.handler.SpigotCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.command.CommandMap;
 import org.bukkit.plugin.java.JavaPlugin;
 
