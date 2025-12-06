@@ -1,5 +1,6 @@
 package net.zffu.hardened.api.command;
 
+import net.zffu.hardened.api.args.types.StringType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -32,6 +33,10 @@ public class CommandContext {
 
     public void appendArgument(String id, Object val) {
         this.parsedArguments.put(id, val);
+    }
+
+    public <K> K get(String argumentId) {
+        return (K) this.parsedArguments.get(argumentId);
     }
 
 }
