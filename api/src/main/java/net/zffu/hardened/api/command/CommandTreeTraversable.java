@@ -1,13 +1,13 @@
 package net.zffu.hardened.api.command;
 
 /**
- * <p>An argument node inside a command tree.</p>
+ * <p>A traversable node inside a command tree.</p>
  * @since 1.0.0
  */
-public interface ArgumentTreeNode {
+public interface CommandTreeTraversable {
 
     /**
-     * Traverses the argument tree node
+     * Traverses the node
      *
      * @return true if command was okay, false if not
      */
