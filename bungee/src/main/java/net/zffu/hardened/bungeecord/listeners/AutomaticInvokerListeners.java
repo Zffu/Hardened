@@ -25,7 +25,7 @@ public class AutomaticInvokerListeners implements Listener {
     public void onPlayerJoin(PostLoginEvent event) {
         ProxiedPlayer player = event.getPlayer();
 
-        this.instance.storedInvokers.put(player.getUniqueId(), new BungeePlayerInvoker(player, InvokerType.PLAYER));
+        this.instance.storedInvokers.put(player.getUniqueId(), new BungeePlayerInvoker(player));
     }
 
     @EventHandler

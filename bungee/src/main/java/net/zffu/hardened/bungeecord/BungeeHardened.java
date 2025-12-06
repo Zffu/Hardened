@@ -8,12 +8,16 @@ import net.zffu.hardened.bungeecord.listeners.AutomaticInvokerListeners;
 
 import java.util.UUID;
 
+/**
+ * <p>The Hardened API implementation for Bungeecord</p>
+ * @since 1.0.0
+ */
 public class BungeeHardened extends Hardened {
 
     public final Plugin plugin;
 
     public BungeeHardened(Plugin plugin) {
-        super(new BungeePlayerInvoker(plugin.getProxy().getConsole(), InvokerType.CONSOLE));
+        super(new BungeeConsoleInvoker(plugin.getProxy().getConsole()));
 
         this.plugin = plugin;
     }
@@ -30,6 +34,6 @@ public class BungeeHardened extends Hardened {
         ProxiedPlayer player = this.plugin.getProxy().getPlayer(playerUUID);
         if(player == null) return;
 
-        this.storedInvokers.put(playerUUID, new BungeePlayerInvoker(player, InvokerType.PLAYER));
+        this.storedInvokers.put(playerUUID, new BungeePlayerInvoker(player));
     }
 }
