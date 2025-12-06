@@ -51,7 +51,7 @@ public class ReflectionSpigotCommandRegistrar extends CommandRegistrar<SpigotHar
 
     @Override
     public void register(Command<?> command) {
-        SpigotCommand cmd = new SpigotCommand(command);
+        SpigotCommand cmd = new SpigotCommand(command, this);
         COMMAND_MAP.register(this.namespace,cmd);
     }
 }
