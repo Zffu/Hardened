@@ -6,16 +6,17 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Represents an argument inside a command tree.
  * <b>This argument doesn't have choices and is just a basic argument.</b>
- * @param <K> the datatype
  */
-public class CommandArgumentNode<K> implements CommandTreeTraversable {
+public class CommandArgumentNode implements CommandTreeTraversable {
 
+    public final ArgumentType type;
     public final String name;
 
     public @Nullable CommandTreeTraversable nextNode;
 
-    public CommandArgumentNode(String name) {
+    public CommandArgumentNode(String name, ArgumentType type) {
         this.name = name;
+        this.type = type;
     }
 
     @Override
