@@ -32,7 +32,7 @@ public abstract class Hardened {
     /**
      * <p>The registrar for commands.</p>
      */
-    private CommandRegistrar commandRegistrar;
+    protected CommandRegistrar commandRegistrar;
 
     public Hardened(CommandInvoker consoleInvoker) {
         this.consoleInvoker = consoleInvoker;

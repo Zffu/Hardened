@@ -5,6 +5,8 @@ import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 import net.zffu.hardened.shared.SharedInvokerFactory;
 import net.zffu.hardened.shared.listeners.AutomaticInvokerListeners;
+import net.zffu.hardened.spigot.registrar.ReflectionSpigotCommandRegistrar;
+import net.zffu.hardened.spigot.registrar.SpigotCommandRegistrar;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -20,8 +22,15 @@ public class SpigotHardened extends Hardened {
     public final JavaPlugin plugin;
 
     public SpigotHardened(@NotNull JavaPlugin plugin, boolean useReflection) {
-        super(SharedInvokerFactory.INSTANCE.createInvoker(plugin.getServer().getConsoleSender(), InvokerType.CONSOLE), (useReflection ? new Spig));
+        super(SharedInvokerFactory.INSTANCE.createInvoker(plugin.getServer().getConsoleSender(), InvokerType.CONSOLE));
         this.plugin = plugin;
+
+        if(useReflection) {
+            this.commandRegistrar = new ReflectionSpigotCommandRegistrar(this);
+        }
+        else {
+            this.commandRegistrar = new SpigotCommandRegistrar(this);
+        }
     }
 
     @Override
