@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>A bungeecord command invoker</p>
  * @since 1.0.0
  */
-public class BungeeInvoker implements CommandInvoker<CommandSender> {
+public class BungeeInvoker implements CommandInvoker {
 
     private final CommandSender sender;
     private final InvokerType type;
@@ -32,11 +32,6 @@ public class BungeeInvoker implements CommandInvoker<CommandSender> {
     @Override
     public boolean hasPermission(@NotNull String permission) {
         return this.sender.hasPermission(permission);
-    }
-
-    @Override
-    public CommandSender getSender() {
-        return this.sender;
     }
 
     @Override

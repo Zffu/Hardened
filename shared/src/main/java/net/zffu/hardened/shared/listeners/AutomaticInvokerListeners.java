@@ -2,7 +2,6 @@ package net.zffu.hardened.shared.listeners;
 
 import net.zffu.hardened.api.Hardened;
 import net.zffu.hardened.api.invoker.InvokerType;
-import net.zffu.hardened.shared.SharedInvokerFactory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -2,14 +2,10 @@ package net.zffu.hardened.spigot.handler;
 
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
-import net.zffu.hardened.api.invoker.InvokerType;
-import net.zffu.hardened.shared.SharedInvokerFactory;
 import net.zffu.hardened.spigot.registrar.SpigotCommandRegistrar;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 /**

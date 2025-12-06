@@ -1,9 +1,7 @@
 package net.zffu.hardened.spigot;
 
 import net.zffu.hardened.api.Hardened;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
-import net.zffu.hardened.shared.SharedInvokerFactory;
 import net.zffu.hardened.shared.listeners.AutomaticInvokerListeners;
 import net.zffu.hardened.spigot.registrar.ReflectionSpigotCommandRegistrar;
 import net.zffu.hardened.spigot.registrar.SpigotCommandRegistrar;
