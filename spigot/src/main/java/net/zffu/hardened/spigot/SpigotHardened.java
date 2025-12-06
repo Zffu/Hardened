@@ -40,6 +40,8 @@ public class SpigotHardened extends Hardened {
 
     @Override
     public void createPlayerInvoker(UUID playerUUID) {
+        if(this.storedInvokers.containsKey(playerUUID)) return;
+
         Player player = this.plugin.getServer().getPlayer(playerUUID);
         if(player == null) return;
 
