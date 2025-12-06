@@ -2,7 +2,7 @@ package net.zffu.hardened.spigot.registrar;
 
 import net.zffu.hardened.api.commands.Command;
 import net.zffu.hardened.api.registrar.CommandRegistrar;
-import net.zffu.hardened.shared.SharedInvokerFactory;
+import net.zffu.hardened.spigot.SpigotHardened;
 import net.zffu.hardened.spigot.handler.SpigotCommandHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,19 +11,17 @@ import org.bukkit.plugin.java.JavaPlugin;
  * <p>Since spigot api is bad, aliases aren't supported by the reflection-less version.</p>
  * @since 1.0.0
  */
-public class SpigotCommandRegistrar implements CommandRegistrar {
-
-    protected JavaPlugin plugin;
+public class SpigotCommandRegistrar extends CommandRegistrar<SpigotHardened> {
 
     /**
      * Constructs a new {@link SpigotCommandRegistrar} linked to the provided {@link JavaPlugin}
-     * @param plugin
+     * @param instance the Hardened instance.
      */
-    public SpigotCommandRegistrar(JavaPlugin plugin) {
-        this.plugin = plugin;
+    public SpigotCommandRegistrar(SpigotHardened instance) {
+        super(instance);
     }
 
     public void register(Command<?> command) {
-        this.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command, this));
+        this.instance.plugin.getCommand(command.getPrimaryName()).setExecutor(new SpigotCommandHandler(command, this));
     }
 }

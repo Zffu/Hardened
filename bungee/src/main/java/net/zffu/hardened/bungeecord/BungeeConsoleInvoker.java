@@ -6,37 +6,25 @@ import net.zffu.hardened.api.invoker.InvokerType;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * <p>A bungeecord command invoker</p>
+ * <p>Implementation of {@link CommandSender} for Bungeecord console</p>
  * @since 1.0.0
  */
-public class BungeeInvoker implements CommandInvoker<CommandSender> {
+public class BungeeConsoleInvoker implements CommandInvoker {
 
     private final CommandSender sender;
-    private final InvokerType type;
 
-    public BungeeInvoker(CommandSender sender) {
+    public BungeeConsoleInvoker(CommandSender sender) {
         this.sender = sender;
-        this.type = InvokerType.PLAYER;
-    }
-
-    public BungeeInvoker(CommandSender sender, InvokerType type) {
-        this.sender = sender;
-        this.type = type;
     }
 
     @Override
     public @NotNull InvokerType getType() {
-        return this.type;
+        return InvokerType.CONSOLE;
     }
 
     @Override
     public boolean hasPermission(@NotNull String permission) {
         return this.sender.hasPermission(permission);
-    }
-
-    @Override
-    public CommandSender getSender() {
-        return this.sender;
     }
 
     @Override

@@ -6,9 +6,10 @@ import net.zffu.hardened.api.context.CommandContext;
 /**
  * <p>An invoker is something that is at the origin of a command execution.</p>
  * <p>The {@link CommandInvoker} will be provided by the {@link CommandContext} when a command gets executed.</p>
+ * <p>This contains the bare minimum and is what consoles are</p>
  * @since 1.0.0
  */
-public interface CommandInvoker<S> {
+public interface CommandInvoker {
 
     /**
      * <p>Gets the type of the {@link CommandInvoker}</p>
@@ -22,12 +23,6 @@ public interface CommandInvoker<S> {
      * @return true or false.
      */
     boolean hasPermission(@NotNull String permission);
-
-    /**
-     * <p>Gets the "command sender" version of the invoker.</p>
-     * @return the "command sender" as S.
-     */
-    S getSender();
 
     /**
      * <p>Sends a message to the invoker.</p>

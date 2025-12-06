@@ -8,6 +8,8 @@ package net.zffu.hardened.api.invoker;
 public enum InvokerType {
 
     PLAYER,
+    PROXY_PLAYER,
+
     CONSOLE,
     OTHER
 
