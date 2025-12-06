@@ -5,6 +5,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.zffu.hardened.api.Hardened;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
+import net.zffu.hardened.bungeecord.listeners.AutomaticInvokerListeners;
 
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class BungeeHardened extends Hardened {
 
     @Override
     public void registerPlayerInvokerListeners() {
-
+        this.plugin.getProxy().getPluginManager().registerListener(this.plugin, new AutomaticInvokerListeners(this));
     }
 
     @Override
