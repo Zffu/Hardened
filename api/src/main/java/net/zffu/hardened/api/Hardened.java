@@ -11,7 +11,7 @@ import java.util.UUID;
  * <p>The base of the Hardened API.</p>
  * @since 1.0.0
  */
-public class Hardened {
+public abstract class Hardened {
 
     /**
      * <p>The core instance of the Hardened API. Is modified by platforms</p>
@@ -49,5 +49,20 @@ public class Hardened {
     public CommandInvoker getPlayerInvoker(UUID playerUUID) {
         return this.storedInvokers.get(playerUUID);
     }
+
+    /**
+     * <p>Registers the event listeners to automatically create/delete player invoker instances.</p>
+     */
+    public abstract void registerPlayerInvokerListeners();
+
+    /**
+     * <p>Unregisters the event listeners to automatically create/delete player invoker instances.</p>
+     */
+    public abstract void unregisterPlayerInvokerListeners();
+
+    /**
+     * <p>Creates an invoker for the player.</p>
+     */
+    public abstract void createPlayerInvoker();
 
 }
