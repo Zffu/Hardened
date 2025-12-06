@@ -1,5 +1,8 @@
 package net.zffu.hardened.api.command;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * <p>A traversable node inside a command tree.</p>
  * @since 1.0.0
@@ -13,5 +16,18 @@ public interface CommandTreeTraversable {
      */
     //TODO: add command ctx
     boolean traverse();
+
+    /**
+     * Get the next node.
+     * @return the node
+     */
+    @Nullable CommandTreeTraversable getNext();
+
+    /**
+     * Appends the node to the end of the tree branch.
+     *
+     * @param node the node to add
+     */
+    void appendToLeaf(CommandTreeTraversable node);
 
 }

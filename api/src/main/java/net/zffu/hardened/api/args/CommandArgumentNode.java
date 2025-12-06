@@ -1,7 +1,7 @@
 package net.zffu.hardened.api.args;
 
 import net.zffu.hardened.api.command.CommandTreeTraversable;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents an argument inside a command tree.
@@ -12,7 +12,7 @@ public class CommandArgumentNode<K> implements CommandTreeTraversable {
 
     public final String name;
 
-    public @NotNull CommandTreeTraversable nextNode;
+    public @Nullable CommandTreeTraversable nextNode;
 
     public CommandArgumentNode(String name) {
         this.name = name;
@@ -24,5 +24,28 @@ public class CommandArgumentNode<K> implements CommandTreeTraversable {
 
         if (this.nextNode != null) return this.nextNode.traverse();
         return true;
+    }
+
+    @Override
+    public @Nullable CommandTreeTraversable getNext() {
+        return this.nextNode;
+    }
+
+    @Override
+    public void appendToLeaf(CommandTreeTraversable node) {
+        if(this.nextNode == null) {
+            this.nextNode = node;
+            return;
+        }
+
+        CommandTreeTraversable n = this;
+        CommandTreeTraversable next = n.getNext();
+
+        while(next != null) {
+            n = next;
+            next = n.getNext();
+        }
+
+        n.appendToLeaf(node);
     }
 }
