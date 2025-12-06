@@ -21,6 +21,11 @@ public class StringType implements ArgumentType<String> {
         return argumentStr;
     }
 
+    public StringType maxLength(int maxLength) {
+        this.maxLength = maxLength;
+        return this;
+    }
+
     @Override
     public @Nullable Collection<String> getChoices() {
         return null;
