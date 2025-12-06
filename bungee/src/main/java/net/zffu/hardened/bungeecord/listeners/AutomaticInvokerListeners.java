@@ -1,14 +1,13 @@
 package net.zffu.hardened.bungeecord.listeners;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.ClientConnectEvent;
 import net.md_5.bungee.api.event.PlayerDisconnectEvent;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.zffu.hardened.api.invoker.InvokerType;
 import net.zffu.hardened.bungeecord.BungeeHardened;
-import net.zffu.hardened.bungeecord.BungeeInvoker;
+import net.zffu.hardened.bungeecord.BungeePlayerInvoker;
 
 /**
  * <p>The listeners for automatic invoker creation / deletion.</p>
@@ -26,7 +25,7 @@ public class AutomaticInvokerListeners implements Listener {
     public void onPlayerJoin(PostLoginEvent event) {
         ProxiedPlayer player = event.getPlayer();
 
-        this.instance.storedInvokers.put(player.getUniqueId(), new BungeeInvoker(player, InvokerType.PLAYER));
+        this.instance.storedInvokers.put(player.getUniqueId(), new BungeePlayerInvoker(player, InvokerType.PLAYER));
     }
 
     @EventHandler

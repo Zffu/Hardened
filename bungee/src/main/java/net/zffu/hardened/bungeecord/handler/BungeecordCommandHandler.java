@@ -6,7 +6,6 @@ import net.md_5.bungee.api.plugin.Command;
 import net.zffu.hardened.api.context.CommandContext;
 import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.registrar.CommandRegistrar;
-import net.zffu.hardened.bungeecord.BungeeInvoker;
 
 /**
  * <p>A bungeecord handler for {@link net.zffu.hardened.api.commands.Command}.</p>

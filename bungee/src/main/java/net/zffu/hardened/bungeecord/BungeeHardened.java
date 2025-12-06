@@ -3,7 +3,6 @@ package net.zffu.hardened.bungeecord;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.zffu.hardened.api.Hardened;
-import net.zffu.hardened.api.invoker.CommandInvoker;
 import net.zffu.hardened.api.invoker.InvokerType;
 import net.zffu.hardened.bungeecord.listeners.AutomaticInvokerListeners;
 
@@ -14,7 +13,7 @@ public class BungeeHardened extends Hardened {
     public final Plugin plugin;
 
     public BungeeHardened(Plugin plugin) {
-        super(new BungeeInvoker(plugin.getProxy().getConsole(), InvokerType.CONSOLE));
+        super(new BungeePlayerInvoker(plugin.getProxy().getConsole(), InvokerType.CONSOLE));
 
         this.plugin = plugin;
     }
@@ -31,6 +30,6 @@ public class BungeeHardened extends Hardened {
         ProxiedPlayer player = this.plugin.getProxy().getPlayer(playerUUID);
         if(player == null) return;
 
-        this.storedInvokers.put(playerUUID, new BungeeInvoker(player, InvokerType.PLAYER));
+        this.storedInvokers.put(playerUUID, new BungeePlayerInvoker(player, InvokerType.PLAYER));
     }
 }
