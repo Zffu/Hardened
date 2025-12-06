@@ -14,6 +14,7 @@
         <module>api-examples</module>
         <module>spigot</module>
         <module>shared</module>
+        <module>bungee</module>
     </modules>
 
     <properties>
