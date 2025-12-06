@@ -32,11 +32,10 @@ public abstract class Hardened {
     /**
      * <p>The registrar for commands.</p>
      */
-    public final CommandRegistrar commandRegistrar;
+    private CommandRegistrar commandRegistrar;
 
-    public Hardened(CommandInvoker consoleInvoker, CommandRegistrar commandRegistrar) {
+    public Hardened(CommandInvoker consoleInvoker) {
         this.consoleInvoker = consoleInvoker;
-        this.commandRegistrar = commandRegistrar;
     }
 
 
@@ -55,6 +54,10 @@ public abstract class Hardened {
      */
     public CommandInvoker getPlayerInvoker(UUID playerUUID) {
         return this.storedInvokers.get(playerUUID);
+    }
+
+    public CommandRegistrar getCommandRegistrar() {
+        return this.commandRegistrar;
     }
 
     /**
