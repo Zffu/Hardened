@@ -1,6 +1,7 @@
 package net.zffu.hardened.api;
 
 import net.zffu.hardened.api.invoker.CommandInvoker;
+import net.zffu.hardened.api.registrar.CommandRegistrar;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,8 +29,14 @@ public abstract class Hardened {
      */
     public final CommandInvoker consoleInvoker;
 
-    public Hardened(CommandInvoker consoleInvoker) {
+    /**
+     * <p>The registrar for commands.</p>
+     */
+    public final CommandRegistrar commandRegistrar;
+
+    public Hardened(CommandInvoker consoleInvoker, CommandRegistrar commandRegistrar) {
         this.consoleInvoker = consoleInvoker;
+        this.commandRegistrar = commandRegistrar;
     }
 
 

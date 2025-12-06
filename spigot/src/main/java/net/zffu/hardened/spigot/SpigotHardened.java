@@ -17,10 +17,10 @@ import java.util.UUID;
  */
 public class SpigotHardened extends Hardened {
 
-    private final JavaPlugin plugin;
+    public final JavaPlugin plugin;
 
-    public SpigotHardened(@NotNull JavaPlugin plugin) {
-        super(SharedInvokerFactory.INSTANCE.createInvoker(plugin.getServer().getConsoleSender(), InvokerType.CONSOLE));
+    public SpigotHardened(@NotNull JavaPlugin plugin, boolean useReflection) {
+        super(SharedInvokerFactory.INSTANCE.createInvoker(plugin.getServer().getConsoleSender(), InvokerType.CONSOLE), (useReflection ? new Spig));
         this.plugin = plugin;
     }
 
