@@ -6,6 +6,7 @@ import net.zffu.hardened.api.context.CommandContext;
 /**
  * <p>An invoker is something that is at the origin of a command execution.</p>
  * <p>The {@link CommandInvoker} will be provided by the {@link CommandContext} when a command gets executed.</p>
+ * <p>This contains the bare minimum and is what consoles are</p>
  * @since 1.0.0
  */
 public interface CommandInvoker {
