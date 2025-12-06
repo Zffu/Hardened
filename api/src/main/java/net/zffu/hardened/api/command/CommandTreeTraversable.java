@@ -15,12 +15,12 @@ public interface CommandTreeTraversable {
      * @return true if command was okay, false if not
      */
     //TODO: add command ctx
-    boolean traverse();
+    boolean traverse(CommandContext ctx);
 
     /**
      * Get the next node.
      * @return the node
      */
-    @Nullable CommandTreeTraversable getNext();
+    @Nullable CommandTreeTraversable getNext(CommandContext ctx);
 
 }

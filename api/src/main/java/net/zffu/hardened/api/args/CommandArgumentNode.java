@@ -1,6 +1,8 @@
 package net.zffu.hardened.api.args;
 
+import net.zffu.hardened.api.command.CommandContext;
 import net.zffu.hardened.api.command.CommandTreeTraversable;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -20,15 +22,23 @@ public class CommandArgumentNode implements CommandTreeTraversable {
     }
 
     @Override
-    public boolean traverse() {
+    public boolean traverse(CommandContext ctx) {
         // TODO: Add argument parsing to this
 
-        if (this.nextNode != null) return this.nextNode.traverse();
+        Object o = this.type.parse(ctx.getCurrentArgument());
+        if(o == null) return false;
+
+        if (this.nextNode != null) {
+            ctx.incrementArgumentCount();
+
+            return this.nextNode.traverse(ctx);
+        }
+
         return true;
     }
 
     @Override
-    public @Nullable CommandTreeTraversable getNext() {
+    public @Nullable CommandTreeTraversable getNext(CommandContext ctx) {
         return this.nextNode;
     }
 
