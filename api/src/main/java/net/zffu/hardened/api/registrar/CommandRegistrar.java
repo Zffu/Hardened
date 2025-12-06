@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class CommandRegistrar<K extends Hardened> {
 
-    protected final K instance;
+    public final K instance;
 
     public CommandRegistrar(K instance) {
         this.instance = instance;
