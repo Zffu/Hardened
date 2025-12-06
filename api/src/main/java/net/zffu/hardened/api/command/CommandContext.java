@@ -4,6 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class CommandContext {
@@ -11,7 +12,10 @@ public class CommandContext {
     private List<String> passedArguments;
     private int currentArgumentIndex;
 
+    private HashMap<String, Object> parsedArguments;
+
     public CommandContext(String[] arguments) {
+        this.parsedArguments = new HashMap<>();
         this.passedArguments = Arrays.asList(arguments);
         this.currentArgumentIndex = 0;
     }
@@ -24,6 +28,10 @@ public class CommandContext {
 
     public void incrementArgumentCount() {
         this.currentArgumentIndex++;
+    }
+
+    public void appendArgument(String id, Object val) {
+        this.parsedArguments.put(id, val);
     }
 
 }

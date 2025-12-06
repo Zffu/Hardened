@@ -36,6 +36,8 @@ public class BranchedArgumentNode implements CommandTreeTraversable {
         Object o = this.type.parse(ctx.getCurrentArgument());
         if(o == null) return false;
 
+        ctx.appendArgument(this.name, o);
+
         CommandTreeTraversable treeTraversable = this.branches.get(o);
         if(treeTraversable == null) return false;
 

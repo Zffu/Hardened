@@ -23,10 +23,10 @@ public class CommandArgumentNode implements CommandTreeTraversable {
 
     @Override
     public boolean traverse(CommandContext ctx) {
-        // TODO: Add argument parsing to this
-
         Object o = this.type.parse(ctx.getCurrentArgument());
         if(o == null) return false;
+
+        ctx.appendArgument(this.name, o);
 
         if (this.nextNode != null) {
             ctx.incrementArgumentCount();
