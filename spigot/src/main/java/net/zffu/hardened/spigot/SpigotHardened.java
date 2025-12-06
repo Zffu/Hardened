@@ -2,6 +2,8 @@ package net.zffu.hardened.spigot;
 
 import net.zffu.hardened.api.Hardened;
 import net.zffu.hardened.api.invoker.InvokerType;
+import net.zffu.hardened.shared.SharedConsoleInvoker;
+import net.zffu.hardened.shared.SharedPlayerInvoker;
 import net.zffu.hardened.shared.listeners.AutomaticInvokerListeners;
 import net.zffu.hardened.spigot.registrar.ReflectionSpigotCommandRegistrar;
 import net.zffu.hardened.spigot.registrar.SpigotCommandRegistrar;
@@ -20,7 +22,7 @@ public class SpigotHardened extends Hardened {
     public final JavaPlugin plugin;
 
     public SpigotHardened(@NotNull JavaPlugin plugin, boolean useReflection) {
-        super(SharedInvokerFactory.INSTANCE.createInvoker(plugin.getServer().getConsoleSender(), InvokerType.CONSOLE));
+        super(new SharedConsoleInvoker(plugin.getServer().getConsoleSender()));
         this.plugin = plugin;
 
         if(useReflection) {
@@ -43,6 +45,6 @@ public class SpigotHardened extends Hardened {
         Player player = this.plugin.getServer().getPlayer(playerUUID);
         if(player == null) return;
 
-        this.storedInvokers.put(playerUUID, SharedInvokerFactory.INSTANCE.createInvoker(player, InvokerType.PLAYER));
+        this.storedInvokers.put(playerUUID, new SharedPlayerInvoker(player));
     }
 }

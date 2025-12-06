@@ -2,6 +2,7 @@ package net.zffu.hardened.shared.listeners;
 
 import net.zffu.hardened.api.Hardened;
 import net.zffu.hardened.api.invoker.InvokerType;
+import net.zffu.hardened.shared.SharedPlayerInvoker;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,7 +25,7 @@ public class AutomaticInvokerListeners implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        this.instance.storedInvokers.put(player.getUniqueId(), SharedInvokerFactory.INSTANCE.createInvoker(player, InvokerType.PLAYER));
+        this.instance.storedInvokers.put(player.getUniqueId(), new SharedPlayerInvoker(player));
     }
 
     @EventHandler
