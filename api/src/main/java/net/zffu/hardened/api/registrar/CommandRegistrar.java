@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>It is generally recommend to only create a single registrar and registering your commands trough it.</p>
  * @since 1.0.0
  * @see {@link Command}
+ * @deprecated Will be replaced by {@link net.zffu.hardened.api.Hardened}
  */
 public interface CommandRegistrar {
 
