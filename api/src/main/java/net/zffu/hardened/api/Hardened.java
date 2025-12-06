@@ -21,7 +21,7 @@ public abstract class Hardened {
     /**
      * <p>The currently created invokers.</p>
      */
-    private HashMap<UUID, CommandInvoker> storedInvokers;
+    public HashMap<UUID, CommandInvoker> storedInvokers;
 
     /**
      * <p>The invoker of the console.</p>
@@ -56,13 +56,8 @@ public abstract class Hardened {
     public abstract void registerPlayerInvokerListeners();
 
     /**
-     * <p>Unregisters the event listeners to automatically create/delete player invoker instances.</p>
-     */
-    public abstract void unregisterPlayerInvokerListeners();
-
-    /**
      * <p>Creates an invoker for the player.</p>
      */
-    public abstract void createPlayerInvoker();
+    public abstract void createPlayerInvoker(UUID playerUUID);
 
 }
