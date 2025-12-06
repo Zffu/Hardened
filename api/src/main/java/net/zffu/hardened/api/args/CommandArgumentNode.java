@@ -31,21 +31,4 @@ public class CommandArgumentNode<K> implements CommandTreeTraversable {
         return this.nextNode;
     }
 
-    @Override
-    public void appendToLeaf(CommandTreeTraversable node) {
-        if(this.nextNode == null) {
-            this.nextNode = node;
-            return;
-        }
-
-        CommandTreeTraversable n = this;
-        CommandTreeTraversable next = n.getNext();
-
-        while(next != null) {
-            n = next;
-            next = n.getNext();
-        }
-
-        n.appendToLeaf(node);
-    }
 }

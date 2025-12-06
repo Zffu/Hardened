@@ -23,11 +23,4 @@ public interface CommandTreeTraversable {
      */
     @Nullable CommandTreeTraversable getNext();
 
-    /**
-     * Appends the node to the end of the tree branch.
-     *
-     * @param node the node to add
-     */
-    void appendToLeaf(CommandTreeTraversable node);
-
 }
