@@ -1,6 +1,11 @@
 package net.zffu.hardened.api;
 
+import net.zffu.hardened.api.invoker.CommandInvoker;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * <p>The base of the Hardened API.</p>
@@ -13,6 +18,20 @@ public class Hardened {
      */
     private static Hardened instance;
 
+    /**
+     * <p>The currently created invokers.</p>
+     */
+    private HashMap<UUID, CommandInvoker> storedInvokers;
+
+    /**
+     * <p>The invoker of the console.</p>
+     */
+    public final CommandInvoker consoleInvoker;
+
+    public Hardened(CommandInvoker consoleInvoker) {
+        this.consoleInvoker = consoleInvoker;
+    }
+
 
     /**
      * <p>Gets the current {@link Hardened} instance.</p>
@@ -20,6 +39,15 @@ public class Hardened {
      */
     public static @Nullable Hardened getInstance() {
         return instance;
+    }
+
+    /**
+     * <p>Gets the invoker for the Player</p>
+     * @param playerUUID the player UUID
+     * @return the invoker
+     */
+    public CommandInvoker getPlayerInvoker(UUID playerUUID) {
+        return this.storedInvokers.get(playerUUID);
     }
 
 }
